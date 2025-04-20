@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+@theme {
+  /* Primary Color */
+
+  --color-woodsmoke-50: #f6f7f9;
+  --color-woodsmoke-100: #eceef2;
+  --color-woodsmoke-200: #d4d8e3;
+  --color-woodsmoke-300: #aeb6cb;
+  --color-woodsmoke-400: #828fae;
+  --color-woodsmoke-500: #627195;
+  --color-woodsmoke-600: #4e5a7b;
+  --color-woodsmoke-700: #404964;
+  --color-woodsmoke-800: #373e55;
+  --color-woodsmoke-900: #323748;
+  --color-woodsmoke-950: #0b0c10;
+
+  /* Secondary Color */
+
+  --color-purple-heart-50: #edf0ff;
+  --color-purple-heart-100: #dfe2ff;
+  --color-purple-heart-200: #c5caff;
+  --color-purple-heart-300: #a1a6ff;
+  --color-purple-heart-400: #807cfd;
+  --color-purple-heart-500: #6e5df7;
+  --color-purple-heart-600: #5f3fec;
+  --color-purple-heart-700: #5d3fd3;
+  --color-purple-heart-800: #432ba8;
+  --color-purple-heart-900: #392b84;
+  --color-purple-heart-950: #23194d;
+
+  /* Accent */
+
+  --color-picton-blue-50: #eff9ff;
+  --color-picton-blue-100: #def1ff;
+  --color-picton-blue-200: #b6e5ff;
+  --color-picton-blue-300: #75d2ff;
+  --color-picton-blue-400: #2cbcff;
+  --color-picton-blue-500: #00a6fb;
+  --color-picton-blue-600: #0082d4;
+  --color-picton-blue-700: #0067ab;
+  --color-picton-blue-800: #00578d;
+  --color-picton-blue-900: #064974;
+  --color-picton-blue-950: #042e4d;
+
+  /* Background */
+
+  --color-shark-50: #f5f7fa;
+  --color-shark-100: #eaeff4;
+  --color-shark-200: #d1dce6;
+  --color-shark-300: #a9bdd0;
+  --color-shark-400: #7b9ab5;
+  --color-shark-500: #5a7e9d;
+  --color-shark-600: #476582;
+  --color-shark-700: #3a526a;
+  --color-shark-800: #334659;
+  --color-shark-900: #2e3c4c;
+  --color-shark-950: #1f2833;
+
+  /* Text */
+
+  --color-silver-sand-50: #f7f7f7;
+  --color-silver-sand-100: #ececed;
+  --color-silver-sand-200: #dededf;
+  --color-silver-sand-300: #c5c6c7;
+  --color-silver-sand-400: #acadae;
+  --color-silver-sand-500: #97989a;
+  --color-silver-sand-600: #86878a;
+  --color-silver-sand-700: #797a7c;
+  --color-silver-sand-800: #656668;
+  --color-silver-sand-900: #535455;
+  --color-silver-sand-950: #353536;
+}
