@@ -3,7 +3,7 @@ import { Avatar, Button, Divider, Text } from "@mantine/core"
 import { Link } from "react-router-dom"
 
 const TalentCard = (props: any) => {
-    return <div className="bg-woodsmoke-900 p-4 w-72 flex flex-col gap-3 rounded-xl
+    return <div className="bg-woodsmoke-900 p-4 w-96 flex flex-col gap-3 rounded-xl
     hover:shadow-[0_0_5px_2px_indigo] !shadow-purple-heart-600 cursor-pointer" >
         <div className="flex justify-between">
             <div className="flex gap-2 items-center">
@@ -37,12 +37,12 @@ const TalentCard = (props: any) => {
         <Divider size="xs" color="woodSmoke.5" />
         <div className="flex [&>*]:w-1/2 [&>*]:p-1">
             <Link to="/talent-profile">
-                <Button fullWidth variant="outline" color="purpleHeart.4">Профіль</Button>
+                <Button fullWidth variant="outline" color="purpleHeart.2">Профіль</Button>
             </Link>
 
             <div>
                 <Link to="/talent-profile">
-                    <Button fullWidth variant="light" color="purpleHeart.4">Написати</Button>
+                    <Button fullWidth variant="light" color="purpleHeart.2">Написати</Button>
                 </Link>
             </div>
         </div>

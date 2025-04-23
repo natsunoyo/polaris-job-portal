@@ -2,6 +2,7 @@ import { Avatar, Indicator } from "@mantine/core";
 import { IconBell, IconSettings } from "@tabler/icons-react";
 import './Header.css'
 import NavLinks from "./NavLinks";
+import { Link } from "react-router-dom";
 
 const Header = () => {
     return <div className="w-full bg-woodsmoke-950 text-white px-4 h-40 flex justify-between items-center gap-10">
@@ -9,7 +10,9 @@ const Header = () => {
         {/* Logo */}
         <div className="flex gap-3 items-center" >
             <img src="src\assets\star.svg" className="h-15 w-15" />
-            <div className="text-3xl font-semibold flex gap-5">Polaris</div>
+            <Link to={'*'}>
+                <div className="text-3xl font-semibold flex gap-5">Polaris</div>
+            </Link>
         </div>
 
         {/* Links */}

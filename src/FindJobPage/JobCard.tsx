@@ -2,7 +2,7 @@ import { IconBookmark, IconClock } from "@tabler/icons-react"
 import { Divider, Text } from "@mantine/core"
 
 const JobCard = (props: any) => {
-    return <div className="bg-woodsmoke-900 p-4 w-72 flex flex-col gap-3 rounded-xl
+    return <div className="bg-woodsmoke-900 p-4 w-96 flex flex-col gap-3 rounded-xl
     hover:shadow-[0_0_5px_2px_indigo] !shadow-purple-heart-600 cursor-pointer" >
         <div className="flex justify-between">
             <div className="flex gap-2 items-center">
@@ -27,7 +27,7 @@ const JobCard = (props: any) => {
         <Divider size="xs" color="woodSmoke.5" />
         <div className="flex justify-between">
             <div className="font-semibold">
-                &#8372; {props.package}
+                &#8372; {props.salary}
             </div>
             <div className="flex gap-1 text-sm items-center text-woodsmoke-500">
                 <IconClock className="h-5 w-5" /> {props.postedDaysAgo} днів тому

@@ -27,7 +27,7 @@ const searchFields = [
     },
 ]
 
-const talents = [
+const talentsData = [
     {
         name: "Олена Ковальчук",
         role: "Business Analyst",
@@ -120,5 +120,49 @@ const talents = [
     }
 ];
 
+const profileData = {
+    name: "Олена Ковальчук",
+    role: "Trainee Software Engineer",
+    city: "Київ",
+    salary: 30000,
+    techInterests: ["SQL", "Agile Methodologies", "Google Cloud"],
+    about: "Цікавлюсь аналітикою та бізнес-процесами. Шукаю можливість розпочати кар'єру бізнес-аналітика в команді, яка готова ділитись досвідом.",
+    image: "TalentAvatar1",
+    education: [
+        {
+            title: "VNTU",
+            speciality: "Computerni nauky",
+            startDate: "Sep 2022",
+            endDate: "Jun 2026",
+            degree: "Bachelor",
+        },
 
-export { searchFields, talents }
+        {
+            title: "VNTU",
+            speciality: "Computerna inzheneria",
+            startDate: "Sep 2026",
+            endDate: "Jun 2028",
+            degree: "Master",
+        }
+    ],
+    courses: [
+        {
+            title: "Kурс Fullstack-розробник",
+            company: "MateAcademy",
+            startDate: "Jun 2020",
+            endDate: "Sep 2020",
+
+        },
+
+        {
+            title: "Kурс Backend-розробник",
+            company: "GoIT",
+            startDate: "Jan 2023",
+            endDate: "May 2023",
+
+        }
+    ]
+}
+
+
+export { searchFields, talentsData, profileData }

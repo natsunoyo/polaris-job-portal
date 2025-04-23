@@ -1,4 +1,4 @@
-import { talents } from "../Data/TalentsData"
+import { talentsData } from "../Data/TalentsData"
 import TalentCard from "./TalentCard"
 import Sort from "../FindJobPage/Sort"
 
@@ -10,7 +10,7 @@ const Talents = () => {
         </div>
         <div className="mt-10 flex gap-5 flex-wrap justify-center">
             {
-                talents.map((talent, index) => <TalentCard key={index} {...talent} />)
+                talentsData.map((talent, index) => <TalentCard key={index} {...talent} />)
             }
         </div>
 
