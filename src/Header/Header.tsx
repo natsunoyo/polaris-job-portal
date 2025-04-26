@@ -1,6 +1,5 @@
 import { Avatar, Indicator } from "@mantine/core";
 import { IconBell, IconSettings } from "@tabler/icons-react";
-import './Header.css'
 import NavLinks from "./NavLinks";
 import { Link } from "react-router-dom";
 

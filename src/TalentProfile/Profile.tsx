@@ -13,7 +13,7 @@ const Profile = (props: any) => {
         <div className="mt-24 px-5">
             <div className="text-3xl font-semibold flex justify-between">{props.name} <Button variant="light" color="purpleHeart.2">Написати</Button></div>
             <div className="text-2xl flex gap-1 items-center"> <IconBriefcase className="h-5 w-5" />{props.role}</div>
-            <div className="text-lg flex gap-1 items-center text-silver-sand-400">
+            <div className="text-lg flex gap-1 items-center text-silver-sand-600">
                 <IconMapPin className="h-5 w-5" />{props.city}
             </div>
         </div>

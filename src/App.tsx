@@ -1,23 +1,28 @@
 // core styles are required for all packages
 import '@mantine/core/styles.css';
-import { createTheme, Divider, MantineProvider } from '@mantine/core'
+import "@mantine/dates/styles.css";
+import '@mantine/carousel/styles.css';
+import '@mantine/tiptap/styles.css';
 import './App.css'
-import './assets/ColorScheme.css'
+import { DatesProvider } from '@mantine/dates';
+import 'dayjs/locale/uk';
+import { createTheme, Divider, MantineProvider } from '@mantine/core'
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import HomePage from './Pages/HomePage';
 import FindJobPage from './Pages/FindJobPage';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import '@mantine/carousel/styles.css';
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
 import FindTalentsPage from './Pages/FindTalentsPage';
 import TalentProfilePage from './Pages/TalentProfilePage';
-import PostJobPage from './Pages/PostJobPage';
-import '@mantine/tiptap/styles.css';
+import PostJobPage from './Pages/PostJobPage'
 import JobDescPage from './Pages/JobDescPage';
 import ApplyPage from './Pages/ApplyPage';
 import CompanyProfilePage from './Pages/CompanyProfilePage';
+import PostedJobsPage from './Pages/PostedJobsPage';
+import JobHistoryPage from './Pages/JobHistoryPage';
 
 function App() {
+
   // Creating a theme to use for customizing Mantine components
   const theme = createTheme({
     colors: {
@@ -34,25 +39,32 @@ function App() {
   })
 
   return (
-    <MantineProvider defaultColorScheme='dark' theme={theme}>
-      {/* Routing for dynamic change of web pages */}
-      <BrowserRouter>
-        <Header />
-        <Divider size="xs" mx="md" />
-        <Routes>
-          <Route path='/talents' element={<FindTalentsPage />} />
-          <Route path='/talent-profile' element={<TalentProfilePage />} />
-          <Route path="/job-description" element={<JobDescPage />} />
-          <Route path="/company-profile" element={<CompanyProfilePage />} />
-          <Route path='/post-job' element={<PostJobPage />} />
-          <Route path="/apply" element={<ApplyPage />} />
-          <Route path="/jobs" element={<FindJobPage />} />
-          <Route path='*' element={<HomePage />} />
-        </Routes>
-        <Footer />
-      </BrowserRouter>
-    </MantineProvider>
+    < DatesProvider settings={{ locale: 'uk' }}>
+      <MantineProvider defaultColorScheme='dark' theme={theme}>
+        {/* Routing for dynamic change of web pages */}
+        <BrowserRouter>
+          <Header />
+          <Divider size="xs" mx="md" />
+          <Routes>
+            <Route path='/talents' element={<FindTalentsPage />} />
+            <Route path='/talent-profile' element={<TalentProfilePage />} />
+            <Route path="/job-description" element={<JobDescPage />} />
+            <Route path="/company-profile" element={<CompanyProfilePage />} />
+            <Route path='/post-job' element={<PostJobPage />} />
+            <Route path="/posted-jobs" element={<PostedJobsPage />} />
+            <Route path="/job-history" element={<JobHistoryPage />} />
+            <Route path="/apply" element={<ApplyPage />} />
+            <Route path="/jobs" element={<FindJobPage />} />
+            <Route path='*' element={<HomePage />} />
+          </Routes>
+          <Footer />
+        </BrowserRouter>
+      </MantineProvider>
+    </DatesProvider >
   )
+
+
+
 }
 
 export default App

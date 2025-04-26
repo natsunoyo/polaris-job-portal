@@ -5,7 +5,7 @@ import { card, desc, skills } from "../Data/JobDescData"
 //@ts-ignore
 import DOMPurify from 'dompurify';
 
-const JobDesc = () => {
+const JobDesc = (props: any) => {
     const data = DOMPurify.sanitize(desc)
     return <div className="w-2/3 pl-3">
         <div className="flex justify-between">
@@ -20,9 +20,9 @@ const JobDesc = () => {
             </div>
             <div className="flex flex-col gap-2 items-center">
                 <Link to="/apply">
-                    <Button variant="light" size="sm" color="purpleHeart.2">Подати заявку</Button>
+                    <Button variant="light" size="sm" color="purpleHeart.2">{props.edit ? "Редагувати" : "Подати заявку"}</Button>
                 </Link>
-                <IconBookmark className="text-purple-heart-200 cursor-pointer" />
+                {props.edit ? <Button color="red.5" size="sm" variant="outline">Видалити</Button> : <IconBookmark className="text-purple-heart-200 cursor-pointer" />}
             </div>
         </div>
         <Divider size="xs" mx="md" my="xl" />
