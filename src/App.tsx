@@ -1,6 +1,6 @@
 // core styles are required for all packages
 import '@mantine/core/styles.css';
-import { createTheme, MantineProvider } from '@mantine/core'
+import { createTheme, Divider, MantineProvider } from '@mantine/core'
 import './App.css'
 import './assets/ColorScheme.css'
 import HomePage from './Pages/HomePage';
@@ -12,6 +12,10 @@ import Footer from './Footer/Footer';
 import FindTalentsPage from './Pages/FindTalentsPage';
 import TalentProfilePage from './Pages/TalentProfilePage';
 import PostJobPage from './Pages/PostJobPage';
+import '@mantine/tiptap/styles.css';
+import JobDescPage from './Pages/JobDescPage';
+import ApplyPage from './Pages/ApplyPage';
+import CompanyProfilePage from './Pages/CompanyProfilePage';
 
 function App() {
   // Creating a theme to use for customizing Mantine components
@@ -34,10 +38,14 @@ function App() {
       {/* Routing for dynamic change of web pages */}
       <BrowserRouter>
         <Header />
+        <Divider size="xs" mx="md" />
         <Routes>
           <Route path='/talents' element={<FindTalentsPage />} />
           <Route path='/talent-profile' element={<TalentProfilePage />} />
+          <Route path="/job-description" element={<JobDescPage />} />
+          <Route path="/company-profile" element={<CompanyProfilePage />} />
           <Route path='/post-job' element={<PostJobPage />} />
+          <Route path="/apply" element={<ApplyPage />} />
           <Route path="/jobs" element={<FindJobPage />} />
           <Route path='*' element={<HomePage />} />
         </Routes>

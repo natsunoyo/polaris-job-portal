@@ -1,11 +1,8 @@
 import { Button } from "@mantine/core"
 import { IconArrowLeft } from "@tabler/icons-react"
 import { Link } from "react-router-dom"
-import Profile from "../TalentProfile/Profile"
-import { profileData } from "../Data/TalentsData"
-import RecommendedTallent from "../TalentProfile/RecommendedTalents"
 
-const TalentProfilePage = () => {
+const CompanyProfilePage = () => {
     return <div className="min-h-[100vh] bg-woodsmoke-950 font-['Commissioner']">
 
         <Link className="my-4 px-5 inline-block" to="/talents">
@@ -13,10 +10,8 @@ const TalentProfilePage = () => {
         </Link>
 
         <div className="flex gap-5">
-            <Profile {...profileData} />
-            <RecommendedTallent />
         </div>
     </div>
 }
 
-export default TalentProfilePage
+export default CompanyProfilePage

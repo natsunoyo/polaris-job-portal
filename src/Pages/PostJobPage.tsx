@@ -1,5 +1,12 @@
+
+import PostJob from "../PostJobPage/PostJob"
+
 const PostJobPage = () => {
-    return <div>l</div>
+    return <div className="min-h-[100vh] bg-woodsmoke-950 font-['Commissioner'] p-4">
+
+        <PostJob />
+
+    </div>
 }
 
 export default PostJobPage
