@@ -1,7 +1,8 @@
 import { Button, Divider } from "@mantine/core"
 import { IconBriefcase, IconMapPin } from "@tabler/icons-react"
 import EduCard from "./EduCard"
-import CoursesCard from "./CoursesCard"
+import CoursesCard from "../UserProfilePage/UserCoursesCard"
+
 
 const Profile = (props: any) => {
     return <div className="w-2/3 px-5">

@@ -15,8 +15,8 @@ const LandingPage = () => {
 
                 {/* Text Input */}
                 <div className="flex gap-5 mt-5">
-                    <TextInput className="bg-purple-heart-800 rounded-lg p-1 px-5 text-silver-sand-200 [&_input]:!text-silver-sand-200" variant="unstyled" label="Назва посади" placeholder="Software Engineer" />
-                    <TextInput className="bg-purple-heart-800 rounded-lg p-1 px-5 text-silver-sand-200 [&_input]:!text-silver-sand-200 " variant="unstyled" label="Зайнятість" placeholder="Повна зайнятість" />
+                    <TextInput className="bg-purple-heart-800/50 rounded-lg p-1 px-5 text-silver-sand-200 [&_input]:text-silver-sand-200" variant="unstyled" label="Назва посади" placeholder="Software Engineer" color="purpleHeart.2" />
+                    <TextInput className="bg-purple-heart-800/50 rounded-lg p-1 px-5 text-silver-sand-200 [&_input]:text-silver-sand-200 " variant="unstyled" label="Зайнятість" placeholder="Повна зайнятість" />
 
 
                     {/* Search Button */}

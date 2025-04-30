@@ -1,16 +1,16 @@
 import { IconBriefcase, IconMapPin, IconPremiumRights, IconRecharging } from '@tabler/icons-react'
 
 const card = [
-    { name: "Місце роботи", icon: IconMapPin, value: "Вінниця" },
-    { name: "Освіта", icon: IconBriefcase, value: "Необов'язково" },
-    { name: "Зарплата", icon: IconPremiumRights, value: "20000 грн" },
-    { name: "Зайнятість", icon: IconRecharging, value: "Повна" },
+  { name: "Місце роботи", icon: IconMapPin, value: "Вінниця" },
+  { name: "Освіта", icon: IconBriefcase, value: "Необов'язково" },
+  { name: "Зарплата", icon: IconPremiumRights, value: "20000 грн" },
+  { name: "Зайнятість", icon: IconRecharging, value: "Повна" },
 ];
 
 const skills = ['React', 'Spring Boot', 'Java', 'Python', 'Node.js', 'MongoDB', 'Express', 'Django', 'PostgreSQL'];
 
 const desc = `<h4>About The Job</h4>
-<p>At UIHUT, we are a passionate, fun-loving, and fast-growing team that believes in helping each other grow. 
+<p>At Enaga-dango Corp., we are a passionate, fun-loving, and fast-growing team that believes in helping each other grow. 
 Whether you are an experienced developer or just starting your journey, we welcome individuals who are eager to learn, experiment, and improve.</p>
 
 <p>We are looking for enthusiastic programmers who love solving real-world technical challenges, are excited about working with new technologies, 

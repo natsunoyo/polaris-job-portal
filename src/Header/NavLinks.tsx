@@ -8,6 +8,7 @@ const NavLinks = () => {
         { name: "Створити вакансію", url: "post-job" },
         { name: "Опубліковані вакансії", url: "posted-jobs" },
         { name: "Історія", url: "job-history" },
+        { name: "Зареєструватися", url: "signup" },
 
     ]
     const location = useLocation();
