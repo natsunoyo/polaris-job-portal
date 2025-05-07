@@ -1,8 +1,8 @@
 import { Button } from "@mantine/core"
 import { IconArrowLeft } from "@tabler/icons-react"
 import { Link } from "react-router-dom"
-import JobDesc from "../JobDesc/JobDesc"
-import RecommendedJobs from "../JobDesc/RecommendedJobs"
+import JobDesc from "../Components/JobDesc/JobDesc"
+import RecommendedJobs from "../Components/JobDesc/RecommendedJobs"
 
 const JobDescPage = () => {
     return <div className="min-h-[100vh] bg-woodsmoke-950 font-['Commissioner']">

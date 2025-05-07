@@ -1,7 +1,7 @@
 import { Button } from "@mantine/core"
 import { IconArrowLeft } from "@tabler/icons-react"
 import { Link } from "react-router-dom"
-import ApplyComp from "../ApplyPage/ApplyComp"
+import ApplyComp from "../Components/ApplyPage/ApplyComp"
 
 const ApplyPage = () => {
     return <div className="min-h-[100vh] bg-woodsmoke-950 font-['Commissioner'] p-4">

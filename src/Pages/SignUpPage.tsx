@@ -1,11 +1,14 @@
-import { IconComet, IconSparkles } from "@tabler/icons-react"
-import SignUp from "../SignUpLoginPages/SignUp"
-import { useLocation } from "react-router-dom"
-import Login from "../SignUpLoginPages/Login";
+import { IconArrowLeft, IconComet, IconSparkles } from "@tabler/icons-react"
+import SignUp from "../Components/SignUpLoginPages/SignUp"
+import { useLocation, useNavigate } from "react-router-dom"
+import Login from "../Components/SignUpLoginPages/Login";
+import { Button } from "@mantine/core";
 
 const SignUpPage = () => {
     const location = useLocation();
-    return <div className="min-h-[90vh] bg-woodsmoke-950 font-['Commissioner'] overflow-hidden">
+    const navigate = useNavigate();
+    return <div className="min-h-[90vh] bg-woodsmoke-950 font-['Commissioner'] overflow-hidden relative">
+        <Button className="!absolute left-5 top-5 z-10" onClick={() => navigate("/")} leftSection={<IconArrowLeft size={20} />} variant="light" color="purpleHeart.2">На головну</Button>
         <div className={`w-[100vw] h-[100vh] transition-all ease-in-out duration-500 flex [&>*]:flex-shrink-0 ${location.pathname == '/signup' ? '-translate-x-1/2' : 'translate-x-0'}`}>
             <Login />
             <div className=" flex left-[87%] absolute text-purple-heart-200">

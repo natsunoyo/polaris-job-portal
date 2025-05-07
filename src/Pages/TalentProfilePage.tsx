@@ -1,9 +1,9 @@
 import { Button } from "@mantine/core"
 import { IconArrowLeft } from "@tabler/icons-react"
 import { Link } from "react-router-dom"
-import Profile from "../TalentProfile/Profile"
+import Profile from "../Components/TalentProfile/Profile"
 import { profileData } from "../Data/TalentsData"
-import RecommendedTallent from "../TalentProfile/RecommendedTalents"
+import RecommendedTallent from "../Components/TalentProfile/RecommendedTalents"
 
 const TalentProfilePage = () => {
     return <div className="min-h-[100vh] bg-woodsmoke-950 font-['Commissioner']">

@@ -3,15 +3,17 @@ import '@mantine/core/styles.css';
 import "@mantine/dates/styles.css";
 import '@mantine/carousel/styles.css';
 import '@mantine/tiptap/styles.css';
+import '@mantine/notifications/styles.css';
 import './App.css'
+import { Notifications } from '@mantine/notifications';
 import { DatesProvider } from '@mantine/dates';
 import 'dayjs/locale/uk';
 import { createTheme, Divider, MantineProvider } from '@mantine/core'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import HomePage from './Pages/HomePage';
 import FindJobPage from './Pages/FindJobPage';
-import Header from './Header/Header';
-import Footer from './Footer/Footer';
+import Header from './Components/Header/Header';
+import Footer from './Components/Footer/Footer';
 import FindTalentsPage from './Pages/FindTalentsPage';
 import TalentProfilePage from './Pages/TalentProfilePage';
 import PostJobPage from './Pages/PostJobPage'
@@ -43,6 +45,7 @@ function App() {
   return (
     < DatesProvider settings={{ locale: 'uk' }}>
       <MantineProvider defaultColorScheme='dark' theme={theme}>
+        <Notifications position='top-center' zIndex={1000} />
         {/* Routing for dynamic change of web pages */}
         <BrowserRouter>
           <Header />

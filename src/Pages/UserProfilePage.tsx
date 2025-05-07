@@ -1,4 +1,4 @@
-import UserProfile from "../UserProfilePage/UserProfile"
+import UserProfile from "../Components/UserProfilePage/UserProfile"
 
 
 
