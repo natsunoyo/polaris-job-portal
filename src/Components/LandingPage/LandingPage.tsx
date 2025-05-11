@@ -21,7 +21,7 @@ const LandingPage = () => {
 
                     {/* Search Button */}
                     <div className="flex items-center justify-center h-full w-20 ">
-                        <IconSearch color="white" className="bg-purple-heart-300 rounded-lg h-[85%] w-[85%] hover:bg-purple-heart-500 active:bg-purple-heart-700 active:text-silver-sand-200 cursor-pointer" />
+                        <IconSearch color="black" className="bg-purple-heart-300 p-1 rounded-xl h-[85%] w-[85%] hover:bg-purple-heart-500 active:bg-purple-heart-700 active:text-silver-sand-200 cursor-pointer" />
                     </div>
                 </div>
 

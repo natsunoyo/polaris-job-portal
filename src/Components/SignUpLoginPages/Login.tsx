@@ -1,22 +1,26 @@
-import { TextInput, PasswordInput, Button } from "@mantine/core"
-import { IconAt, IconCheck, IconLock, IconX } from "@tabler/icons-react"
+import { TextInput, PasswordInput, Button, LoadingOverlay } from "@mantine/core"
+import { IconAt, IconLock } from "@tabler/icons-react"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { loginUser } from "../../Services/UserService"
 import { loginValidation } from "../../Services/FormValidation"
-import { notifications } from "@mantine/notifications"
 import { useDisclosure } from "@mantine/hooks"
 import ResetPassword from "./ResetPassword"
+import { useDispatch } from "react-redux"
+import { errorNotification, successNotification } from "../../Services/NotificationService"
+import { setUser } from "../../Slices/UserSlice"
 const form = {
     email: "",
     password: "",
 }
 
 const Login = () => {
+    const dispatch = useDispatch();
     const [opened, { open, close }] = useDisclosure(false);
     const [data, setData] = useState<{ [key: string]: string }>(form);
     const [formError, setFormError] = useState<{ [key: string]: string }>(form);
     const navigate = useNavigate();
+    const [loading, setLoading] = useState(false);
 
     const handleChange = (event: any) => {
         setFormError({ ...formError, [event.target.name]: "" });
@@ -30,28 +34,20 @@ const Login = () => {
         }
         setFormError(newFormError);
         if (valid) {
+            setLoading(true);
             loginUser(data).then((response) => {
                 console.log(response);
                 setData(form);
-                notifications.show({
-                    title: "Ви увійшли в систему",
-                    message: "Перенаправлення головну сторінку...",
-                    withCloseButton: true,
-                    icon: <IconCheck size={20} />,
-                    color: "teal"
-                })
+                successNotification("Ви увійшли в систему", "Перенаправлення головну сторінку...")
                 setTimeout(() => {
+                    setLoading(false);
+                    dispatch(setUser(response));
                     navigate("/");
                 }, 1000)
             }).catch((error) => {
+                setLoading(false);
                 console.log(error);
-                notifications.show({
-                    title: "Помилка при вході в систему",
-                    message: error.response.data.errorMessage,
-                    withCloseButton: true,
-                    icon: <IconX size={20} />,
-                    color: "red",
-                })
+                errorNotification("Помилка при вході в систему", error.response.data.errorMessage)
 
             })
         }
@@ -60,6 +56,14 @@ const Login = () => {
     }
 
     return <>
+
+        <LoadingOverlay
+            visible={loading}
+            zIndex={1000}
+            overlayProps={{ radius: 'sm', blur: 2 }}
+            loaderProps={{ color: 'purpleHeart.4', type: 'bars' }}
+        />
+
         <div className="w-1/2 px-20 flex flex-col justify-center gap-5">
             <div className="text-2xl font-semibold">Увійти</div>
 
@@ -90,7 +94,7 @@ const Login = () => {
                 size="lg"
             />
 
-            <Button onClick={handleSubmit} color="purpleHeart.4" size="lg" variant="filled">Увійти</Button>
+            <Button loading={loading} onClick={handleSubmit} color="purpleHeart.4" size="lg" variant="filled">Увійти</Button>
             <div className="text-lg mx-auto">Немає аккаунту? <span onClick={() => { navigate("/signup"); setFormError(form); setData(form) }} className="text-purple-heart-400 hover:underline cursor-pointer">Зареєструватися</span></div>
             <div onClick={open} className="text-purple-heart-400 hover:underline cursor-pointer text-center">Забули пароль?</div>
         </div>

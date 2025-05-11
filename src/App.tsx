@@ -8,22 +8,10 @@ import './App.css'
 import { Notifications } from '@mantine/notifications';
 import { DatesProvider } from '@mantine/dates';
 import 'dayjs/locale/uk';
-import { createTheme, Divider, MantineProvider } from '@mantine/core'
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import HomePage from './Pages/HomePage';
-import FindJobPage from './Pages/FindJobPage';
-import Header from './Components/Header/Header';
-import Footer from './Components/Footer/Footer';
-import FindTalentsPage from './Pages/FindTalentsPage';
-import TalentProfilePage from './Pages/TalentProfilePage';
-import PostJobPage from './Pages/PostJobPage'
-import JobDescPage from './Pages/JobDescPage';
-import ApplyPage from './Pages/ApplyPage';
-import CompanyProfilePage from './Pages/CompanyProfilePage';
-import PostedJobsPage from './Pages/PostedJobsPage';
-import JobHistoryPage from './Pages/JobHistoryPage';
-import SignUpPage from './Pages/SignUpPage';
-import UserProfilePage from './Pages/UserProfilePage';
+import { createTheme, MantineProvider } from '@mantine/core'
+import Store from './Store';
+import { Provider } from 'react-redux';
+import AppRoutes from './Pages/AppRoutes';
 
 function App() {
 
@@ -41,34 +29,16 @@ function App() {
 
     fontFamily: "Commissioner"
   })
-
   return (
-    < DatesProvider settings={{ locale: 'uk' }}>
-      <MantineProvider defaultColorScheme='dark' theme={theme}>
-        <Notifications position='top-center' zIndex={1000} />
-        {/* Routing for dynamic change of web pages */}
-        <BrowserRouter>
-          <Header />
-          <Divider size="xs" mx="md" />
-          <Routes>
-            <Route path='/talents' element={<FindTalentsPage />} />
-            <Route path='/talent-profile' element={<TalentProfilePage />} />
-            <Route path="/job-description" element={<JobDescPage />} />
-            <Route path="/company-profile" element={<CompanyProfilePage />} />
-            <Route path='/post-job' element={<PostJobPage />} />
-            <Route path="/posted-jobs" element={<PostedJobsPage />} />
-            <Route path="/job-history" element={<JobHistoryPage />} />
-            <Route path="/profile" element={<UserProfilePage />} />
-            <Route path="/signup" element={<SignUpPage />} />
-            <Route path="/login" element={<SignUpPage />} />
-            <Route path="/apply" element={<ApplyPage />} />
-            <Route path="/jobs" element={<FindJobPage />} />
-            <Route path='*' element={<HomePage />} />
-          </Routes>
-          <Footer />
-        </BrowserRouter>
-      </MantineProvider>
-    </DatesProvider >
+    <Provider store={Store}>
+      < DatesProvider settings={{ locale: 'uk' }}>
+        <MantineProvider defaultColorScheme='dark' theme={theme}>
+          <Notifications position='top-center' zIndex={1000} />
+          {/* Routing for dynamic change of web pages */}
+          <AppRoutes />
+        </MantineProvider>
+      </DatesProvider >
+    </Provider>
   )
 
 

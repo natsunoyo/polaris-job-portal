@@ -12,7 +12,7 @@ import CoursesEdit from "./CoursesEdit"
 
 const UserProfile = () => {
     const select = fields;
-    const [edit, setEdit] = useState([false, false, false, false, false])
+    const [edit, setEdit] = useState([false, false, false, false, false,])
     const [bio, setBio] = useState(`Цікавлюсь аналітикою та бізнес-процесами. Шукаю можливість розпочати кар'єру бізнес-аналітика в команді, яка готова ділитись досвідом.`)
     const [skill, setSkill] = useState(["HTML", "CSS", "JavaScript", "React", "Angular", "Node.js", "Python",
         "Java", "Ruby", "PHP", "SQL", "MongoDB", "PostgreSQL", "Git",
@@ -29,6 +29,8 @@ const UserProfile = () => {
     return <div className=" pt-5 w-4/5 mx-auto">
         <div className="relative">
             <img className="rounded-t-2xl" src="src/assets/profilePage/banner.jpg" alt="" />
+            <div className="text-3xl font-semibold flex justify-between absolute bottom-3">
+            </div>
             <img className=" w-48 h-48 rounded-full -bottom-1/3 absolute left-3 border-woodsmoke-950 border-8" src="src/assets/avatars/avatar1.jpg" alt="" />
         </div>
         <div className="mt-24 px-3">
@@ -36,7 +38,7 @@ const UserProfile = () => {
 
             {/* Personal info edit */}
 
-            <div className="text-3xl font-semibold flex justify-between">{profileData.name} <ActionIcon onClick={() => handleEdit(0)} size='xl' variant="subtle" color="purpleHeart.2">
+            <div className="text-3xl font-semibold flex justify-between pt-4">{profileData.name} <ActionIcon onClick={() => handleEdit(0)} size='xl' variant="subtle" color="purpleHeart.2">
                 {edit[0] ? <IconDeviceFloppy size='xl' /> : <IconPencil size='xl' />}</ActionIcon></div>
         </div>
         {
