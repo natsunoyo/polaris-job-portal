@@ -89,7 +89,7 @@ const SignUp = () => {
             overlayProps={{ radius: 'sm', blur: 2 }}
             loaderProps={{ color: 'purpleHeart.4', type: 'bars' }}
         />
-        <div className="w-1/2 px-20 flex flex-col justify-center gap-2">
+        <div className="w-1/2 px-20 flex flex-col justify-center gap-3">
             <div className="text-2xl font-semibold">Реєстрація</div>
 
             {/* Full name input field*/}

@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit"
 import { getItem, removeItem, setItem } from "../Services/LocalStorageService"
 
-const UserSlice = createSlice({
+const userSlice = createSlice({
     name: "user",
     initialState: getItem("user"),
     reducers: {
@@ -19,5 +19,5 @@ const UserSlice = createSlice({
     }
 })
 
-export const { setUser, removeUser } = UserSlice.actions
-export default UserSlice.reducer
+export const { setUser, removeUser } = userSlice.actions
+export default userSlice.reducer

@@ -1,5 +1,6 @@
 import { ActionIcon } from "@mantine/core"
 import { IconTrash } from "@tabler/icons-react"
+import { formatDate } from "../../Services/Utilities"
 
 const UserCoursesCard = (props: any) => {
     return <div className="flex flex-col gap-2">
@@ -15,7 +16,7 @@ const UserCoursesCard = (props: any) => {
             </div>
             <div className="flex items-center gap-3">
                 <div className="text-md text-silver-sand-400">
-                    {props.startDate}- {props.endDate}
+                    {formatDate(props.startDate)} - {formatDate(props.endDate)}
                 </div>
                 {props.edit && <ActionIcon size='xl' variant="subtle" color="red.5">
                     <IconTrash size='xl' />

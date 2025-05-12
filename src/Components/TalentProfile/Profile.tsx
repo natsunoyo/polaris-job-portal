@@ -13,16 +13,16 @@ const Profile = (props: any) => {
 
         <div className="mt-24 px-5">
             <div className="text-3xl font-semibold flex justify-between">{props.name} <Button variant="light" color="purpleHeart.2">Написати</Button></div>
-            <div className="text-2xl flex gap-1 items-center"> <IconBriefcase className="h-5 w-5" />{props.role}</div>
+            <div className="text-2xl flex gap-1 items-center"> <IconBriefcase className="h-5 w-5" />{props.jobTitle}</div>
             <div className="text-lg flex gap-1 items-center text-silver-sand-600">
-                <IconMapPin className="h-5 w-5" />{props.city}
+                <IconMapPin className="h-5 w-5" />{props.location}
             </div>
         </div>
         <Divider size="xs" mx="md" my="xl" />
         <div className="px-5">
             <div className="text-2xl font-semibold mb-3">Біографія</div>
             <div className="text-lg text-silver-sand-400 text-justify">
-                {props.about}
+                {props.bio}
             </div>
         </div>
         <Divider size="xs" mx="md" my="xl" />
@@ -30,7 +30,7 @@ const Profile = (props: any) => {
             <div className="text-2xl font-semibold mb-3 ">Навички</div>
             <div className="flex flex-wrap gap-2">
                 {
-                    props.techInterests.map((skill: any, index: any) => <div key={index} className="bg-purple-heart-400/30 rounded-3xl font-medium text-purple-heart-500 px-3 py-1">{skill}</div>)
+                    props.skills.map((skill: any, index: any) => <div key={index} className="bg-purple-heart-400/30 rounded-3xl font-medium text-purple-heart-500 px-3 py-1">{skill}</div>)
                 }
             </div>
         </div>

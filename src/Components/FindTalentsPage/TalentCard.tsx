@@ -20,18 +20,18 @@ const TalentCard = (props: any) => {
                 </div>
                 <div>
                     <div className="font-semibold">{props.name}</div>
-                    <div className="text-xs text-woodsmoke-400">{props.role}</div>
+                    <div className="text-xs text-woodsmoke-400">{props.jobTitle}</div>
                 </div>
             </div>
             <IconBookmark className="text-silver-sand-400 cursor-pointer" />
         </div>
         <div className="flex gap-2 [&>div]:py-1 [&>div]:px-2 [&>div]:bg-woodsmoke-800 [&>div]:text-purple-heart-400 [&>div]:rounded-lg text-xs items-center">
-            <div>{props.techInterests[0]}</div>
-            <div>{props.techInterests[1]}</div>
-            <div>{props.techInterests[2]}</div>
+            <div>{props.skills[0]}</div>
+            <div>{props.skills[1]}</div>
+            <div>{props.skills[2]}</div>
         </div>
         <Text className="!text-sm text-justify !text-silver-sand-400" lineClamp={3}>
-            {props.about}
+            {props.bio}
         </Text>
         <Divider size="xs" color="woodSmoke.5" />
         {
@@ -42,7 +42,7 @@ const TalentCard = (props: any) => {
                     &#8372; {props.salary}
                 </div>
                 <div className="flex gap-1 text-sm items-center text-woodsmoke-500">
-                    <IconMapPin className="h-5 w-5" /> {props.city}
+                    <IconMapPin className="h-5 w-5" /> {props.location}
                 </div>
             </div>
         }

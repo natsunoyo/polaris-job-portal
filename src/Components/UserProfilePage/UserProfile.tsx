@@ -1,17 +1,21 @@
-import { ActionIcon, Divider, TagsInput, Textarea } from "@mantine/core"
-import { IconBriefcase, IconDeviceFloppy, IconMapPin, IconPencil, IconPlus } from "@tabler/icons-react"
+import { ActionIcon, Avatar, Divider, FileInput, Indicator, TagsInput, Textarea } from "@mantine/core"
+import { IconDeviceFloppy, IconPencil, IconPlus } from "@tabler/icons-react"
 import UserEduCard from "./UserEduCard"
 import UserCoursesCard from "./UserCoursesCard"
-import { profileData } from "../../Data/TalentsData"
-import { useState } from "react"
-import UserSelectInput from "./UserSelectInput"
-import fields from "../../Data/ProfileData"
+import { useEffect, useState } from "react"
 import EduEdit from "./EduEdit"
 import CoursesEdit from "./CoursesEdit"
+import { useDispatch, useSelector } from "react-redux"
+import { getProfile } from "../../Services/ProfileService"
+import Info from "./Info"
+import { setProfile } from "../../Slices/ProfileSlice"
 
 
 const UserProfile = () => {
-    const select = fields;
+    const dispatch = useDispatch();
+    const user = useSelector((state: any) => state.user)
+    const profile = useSelector((state: any) => state.profile)
+
     const [edit, setEdit] = useState([false, false, false, false, false,])
     const [bio, setBio] = useState(`Цікавлюсь аналітикою та бізнес-процесами. Шукаю можливість розпочати кар'єру бізнес-аналітика в команді, яка готова ділитись досвідом.`)
     const [skill, setSkill] = useState(["HTML", "CSS", "JavaScript", "React", "Angular", "Node.js", "Python",
@@ -26,43 +30,32 @@ const UserProfile = () => {
         setEdit(newEdit);
         console.log(edit)
     }
+
+    useEffect(() => {
+        getProfile(user.id).then((data: any) => {
+            dispatch(setProfile(data));
+        }).catch((error: any) => {
+            console.log(error);
+        })
+    }, [])
+
     return <div className=" pt-5 w-4/5 mx-auto">
         <div className="relative">
             <img className="rounded-t-2xl" src="src/assets/profilePage/banner.jpg" alt="" />
-            <div className="text-3xl font-semibold flex justify-between absolute bottom-3">
+
+            <div className="absolute -bottom-1/3 left-3">
+                <Indicator className="[&_mantine-Indicator-indicator]:!border-8 [&_img]:hover:opacity-80 " autoContrast inline offset={30} label={<IconPencil className="w-4/5 h-4/5" />} size={45} color="purpleHeart.4" position="bottom-end" withBorder>
+                    <Avatar size="200" className="rounded-full -bottom-1/3 absolute left-3 border-woodsmoke-950 border-8" src="src/assets/avatars/avatar1.jpg" alt="" />
+                    <FileInput className="absolute bottom-2 right-2 z-[201] w-12 [&_div]:text-transparent" variant="unstyled" size="lg" radius="xl" accept="image/png,image/jpeg" />
+                </Indicator>
             </div>
-            <img className=" w-48 h-48 rounded-full -bottom-1/3 absolute left-3 border-woodsmoke-950 border-8" src="src/assets/avatars/avatar1.jpg" alt="" />
+
         </div>
+
         <div className="mt-24 px-3">
-
-
             {/* Personal info edit */}
-
-            <div className="text-3xl font-semibold flex justify-between pt-4">{profileData.name} <ActionIcon onClick={() => handleEdit(0)} size='xl' variant="subtle" color="purpleHeart.2">
-                {edit[0] ? <IconDeviceFloppy size='xl' /> : <IconPencil size='xl' />}</ActionIcon></div>
+            <Info />
         </div>
-        {
-            edit[0]
-                ? <>
-                    <div className="pr-3 pl-3">
-                        <div className="flex gap-10 [&>*]:w-1/2 mb-3">
-                            <UserSelectInput {...select[0]} />
-                            <UserSelectInput {...select[1]} />
-                        </div>
-                        <UserSelectInput {...select[2]} />
-                    </div>
-                </>
-                : <>
-                    <div className="pr-3 pl-3">
-                        <div className="text-2xl flex gap-1 items-center"> <IconBriefcase className="h-5 w-5" />{profileData.role}</div>
-                        <div className="text-lg flex gap-1 items-center text-silver-sand-600">
-                            <IconMapPin className="h-5 w-5" />{profileData.city}
-                        </div>
-                    </div>
-                </>
-        }
-
-
 
         {/* Bio edit */}
 
@@ -83,7 +76,7 @@ const UserProfile = () => {
                     />
                     :
                     <div className="text-lg text-silver-sand-400 text-justify">
-                        {bio}
+                        {profile?.bio}
                     </div>
             }
 
@@ -108,7 +101,7 @@ const UserProfile = () => {
                     :
                     <div className="flex flex-wrap gap-2">
                         {
-                            skill.map((skill, index) => <div key={index} className="bg-purple-heart-400/30 rounded-3xl font-medium text-purple-heart-500 px-3 py-1">{skill}</div>)
+                            profile?.skills?.map((skill: any, index: number) => <div key={index} className="bg-purple-heart-400/30 rounded-3xl font-medium text-purple-heart-500 px-3 py-1">{skill}</div>)
                         }
                     </div>
             }
@@ -126,7 +119,7 @@ const UserProfile = () => {
                     {edit[3] ? <IconDeviceFloppy size='xl' /> : <IconPencil size='xl' />}</ActionIcon></div></div>
             <div className="flex flex-col gap-8">
                 {
-                    profileData.education.map((edu: any, index: any) => <UserEduCard key={index} {...edu} edit={edit[3]} />)
+                    profile?.educations?.map((edu: any, index: any) => <UserEduCard key={index} {...edu} edit={edit[3]} />)
                 }
                 {
                     addEdu && <EduEdit setEdit={setAddEdu} />
@@ -143,7 +136,7 @@ const UserProfile = () => {
                 {edit[4] ? <IconDeviceFloppy size='xl' /> : <IconPencil size='xl' />}</ActionIcon></div>
             <div className="flex flex-col gap-8">
                 {
-                    profileData.courses.map((course: any, index: any) => <UserCoursesCard key={index} {...course} edit={edit[4]} />)
+                    profile?.courses?.map((course: any, index: any) => <UserCoursesCard key={index} {...course} edit={edit[4]} />)
                 }
                 {
                     addCourses && <CoursesEdit setEdit={setAddCourses} />

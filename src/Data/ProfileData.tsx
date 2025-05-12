@@ -6,13 +6,11 @@ const fields = [
         placeholder: "Введіть назву посади",
         options: ["Business Analytics", "Content Writing", "Data Science",
             "Design", "Digital Marketing", "Human Resourses", "Web Development", "Software Engineer"],
-        value: "Software Engineer",
         leftSection: <IconBriefcase />,
     },
     {
         label: "Освіта",
         options: ["Необов'язково", "Вища", "Передвища фахова", "Онлайн/офлайн курси"],
-        value: "Вища",
         leftSection: <IconSchool />,
     },
     {
@@ -22,7 +20,6 @@ const fields = [
             "Житомир", "Івано-Франківськ", "Київ",
             "Хмельницький", "Черкаси", "Миколаїв",
             "Чернівці", "Ужгород", "Одеса"],
-        value: "Вінниця",
         leftSection: <IconMapPin />,
     },
     {
