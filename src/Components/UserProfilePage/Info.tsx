@@ -1,5 +1,5 @@
 import { ActionIcon } from "@mantine/core"
-import { IconDeviceFloppy, IconPencil, IconBriefcase, IconMapPin } from "@tabler/icons-react"
+import { IconPencil, IconBriefcase, IconMapPin, IconCheck, IconX } from "@tabler/icons-react"
 import UserSelectInput from "./UserSelectInput"
 import fields from "../../Data/ProfileData"
 import { useState } from "react"
@@ -18,27 +18,32 @@ const Info = () => {
         if (!edit) {
             setEdit(true);
             form.setValues({ jobTitle: profile.jobTitle, eduLevel: profile.eduLevel, location: profile.location })
-        } else {
-            setEdit(false);
-            let updatedProfile = { ...profile, ...form.getValues() }
-            dispatch(changeProfile(updatedProfile))
-            successNotification("Успіх", "Профіль оновлено успішно.")
-            console.log(updatedProfile)
-        }
-
+        } else setEdit(false);
     }
+
     const form = useForm({
         mode: 'controlled',
         initialValues: { jobTitle: '', eduLevel: '', location: '' },
     });
+    const handleSave = () => {
+        setEdit(false);
+        let updatedProfile = { ...profile, ...form.getValues() }
+        dispatch(changeProfile(updatedProfile))
+        successNotification("Успіх", "Профіль оновлено успішно.")
+        console.log(updatedProfile)
+    }
 
 
     return <>
         <div className="text-3xl font-semibold flex justify-between pt-4 pl-3">
-            {user.name}
-            <ActionIcon onClick={handleClick} size="xl" variant="subtle" color="purpleHeart.2">
-                {edit ? <IconDeviceFloppy size="xl" /> : <IconPencil size="xl" />}
-            </ActionIcon>
+            {user.name} <div>
+                {edit && <ActionIcon onClick={handleSave} size="xl" variant="subtle" color={edit ? "green.6" : "purpleHeart.2"}>
+                    {<IconCheck size="xl" />}
+                </ActionIcon>}
+                <ActionIcon onClick={handleClick} size="xl" variant="subtle" color={edit ? "red.6" : "purpleHeart.2"}>
+                    {edit ? <IconX size="xl" /> : <IconPencil size="xl" />}
+                </ActionIcon>
+            </div>
         </div>
         {
             edit

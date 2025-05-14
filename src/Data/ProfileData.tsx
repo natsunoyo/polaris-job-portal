@@ -10,7 +10,7 @@ const fields = [
     },
     {
         label: "Освіта",
-        options: ["Необов'язково", "Вища", "Передвища фахова", "Онлайн/офлайн курси"],
+        options: ["Середня", "Передвища фахова", "Вища", "Онлайн/офлайн курси"],
         leftSection: <IconSchool />,
     },
     {
@@ -30,7 +30,13 @@ const fields = [
             "API Development", "Testing and Debugging", "Agile Methodologies",
             "DevOps", "AWS", "Azure", "Google Cloud", "SEO"],
         value: ["SQL", "Agile Methodologies", "Google Cloud"]
-    }
+    },
+
+    {
+        label: "Рівень вищої освіти",
+        options: ["Бакалавр", "Магістр", "Доктор філософії", "Доктор наук"],
+        leftSection: <IconSchool />,
+    },
 ];
 
 export default fields;
