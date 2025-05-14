@@ -1,10 +1,8 @@
 import { Avatar, Divider, FileInput, Overlay } from "@mantine/core"
 import { IconEdit } from "@tabler/icons-react"
-import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { getProfile } from "../../Services/ProfileService"
 import Info from "./Info"
-import { changeProfile, setProfile } from "../../Slices/ProfileSlice"
+import { changeProfile } from "../../Slices/ProfileSlice"
 import Bio from "./Bio"
 import Skills from "./Skills"
 import Education from "./Education"
@@ -15,15 +13,7 @@ import { successNotification } from "../../Services/NotificationService"
 
 const UserProfile = () => {
     const dispatch = useDispatch();
-    const user = useSelector((state: any) => state.user)
     const profile = useSelector((state: any) => state.profile)
-    useEffect(() => {
-        getProfile(user.id).then((data: any) => {
-            dispatch(setProfile(data));
-        }).catch((error: any) => {
-            console.log(error);
-        })
-    }, [])
     const { hovered, ref } = useHover();
     const handleFileChange = async (image: any) => {
         let picture: any = await getBase64(image)

@@ -1,8 +1,18 @@
-import { jobList } from "../../Data/JobsData"
+import { useEffect, useState } from "react"
 import JobCard from "./JobCard"
 import Sort from "./Sort"
+import { getAllJobs } from "../../Services/JobService"
 
 const Jobs = () => {
+    const [jobList, setJobList] = useState([{}])
+    useEffect(() => {
+        getAllJobs().then((res) => {
+            setJobList(res);
+        }).catch((err) => {
+            console.log(err)
+        })
+    })
+
     return <div className="p-5">
         <div className="flex justify-between">
             <div className="text-silver-sand-200 text-2xl font-semibold">Рекомендовані вакансії</div>

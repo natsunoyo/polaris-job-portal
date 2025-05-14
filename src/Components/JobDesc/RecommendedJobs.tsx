@@ -1,12 +1,25 @@
-import { jobList } from "../../Data/JobsData";
+import { useParams } from "react-router-dom";
 import JobCard from "../FindJobPage/JobCard";
+import { useState, useEffect } from "react";
+import { getJob } from "../../Services/JobService";
 
 
 const RecommendedJobs = () => {
+    const [jobList, setJobList] = useState<any>(null)
+    const { id } = useParams();
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        getJob(id).then((res) => {
+            setJobList(res)
+        }).catch((err) => {
+            console.log(err)
+        })
+    }, [id])
+
     return <div className="ml-8">
         <div className="text-2xl font-semibold mb-5">Рекомендовані вакансії</div>
         <div className="flex flex-col flex-wrap gap-5">
-            {jobList.map((talent, index) => index < 6 && <JobCard key={index} {...talent} />)}
+            {jobList?.map((job: any, index: number) => index < 6 && id != job.id && <JobCard key={index} {...job} />)}
         </div>
     </div>
 }

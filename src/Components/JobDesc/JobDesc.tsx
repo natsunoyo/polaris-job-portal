@@ -1,25 +1,26 @@
 import { ActionIcon, Button, Divider } from "@mantine/core"
 import { IconBookmark } from "@tabler/icons-react"
 import { Link } from "react-router-dom"
-import { card, desc, skills } from "../../Data/JobDescData"
+import { card } from "../../Data/JobDescData"
 //@ts-ignore
 import DOMPurify from 'dompurify';
+import { timeAgo } from "../../Services/Utilities";
 
 const JobDesc = (props: any) => {
-    const data = DOMPurify.sanitize(desc)
+    const data = DOMPurify.sanitize(props.description)
     return <div className="w-2/3 pl-3">
         <div className="flex justify-between">
             <div className="flex gap-2 p-3 items-center">
                 <div className="p-3  bg-woodsmoke-800 rounded-xl">
-                    <img className="h-14" src={`src/assets/icons/Microsoft.svg`} alt="" />
+                    <img className="h-14" src={`src/assets/icons/${props.company}.svg`} alt="" />
                 </div>
                 <div>
-                    <div className="font-semibold text-3xl">Backend developer</div>
-                    <div className="text-xl text-woodsmoke-400">Microsoft &#x2022; 3 days ago &#x2022; 40 кандидатів</div>
+                    <div className="font-semibold text-3xl">{props.jobTitle}</div>
+                    <div className="text-xl text-woodsmoke-400">{props.company} &#x2022; {timeAgo(props.postTime)} &#x2022; {props.applicants ? props.applicants.tength : 0} кандидатів</div>
                 </div>
             </div>
             <div className="flex flex-col gap-2 items-center">
-                <Link to="/apply">
+                <Link to={`/apply/${props.id}`}>
                     <Button variant="light" size="sm" color="purpleHeart.2">{props.edit ? "Редагувати" : "Подати заявку"}</Button>
                 </Link>
                 {props.edit ? <Button color="red.5" size="sm" variant="outline">Видалити</Button> : <IconBookmark className="text-purple-heart-200 cursor-pointer" />}
@@ -33,7 +34,8 @@ const JobDesc = (props: any) => {
                         <item.icon className="h-4/5 w-4/5" stroke={1.5} />
                     </ActionIcon>
                     <div className="text-sm text-silver-sand-400">{item.name}</div>
-                    <div className="font-semibold">{item.value}</div>
+                    <div className="font-semibold">{props ? props[item.id] : "N/A"}
+                        {item.id == 'salaryOffered' && <> грн</>}</div>
                 </div>)
             }
         </div>
@@ -42,7 +44,7 @@ const JobDesc = (props: any) => {
             <div className="text-xl font-semibold pl-3 mb-5">Необхідні навички</div>
             <div className="flex flex-wrap gap-3 pl-3">
                 {
-                    skills.map((skill: any, index: number) => <ActionIcon key={index} className="!h-fit !w-fit !font-medium !text-sm"
+                    props?.skillsRequired?.map((skill: any, index: number) => <ActionIcon key={index} className="!h-fit !w-fit !font-medium !text-sm"
                         variant="filled" color="purpleHeart.6" p="xs" radius="xl" aria-label="Settings">
                         {skill}
                     </ActionIcon>)
@@ -60,14 +62,14 @@ const JobDesc = (props: any) => {
             <div className="flex justify-between mb-3">
                 <div className="flex gap-2 p-3 items-center">
                     <div className="p-3  bg-woodsmoke-800 rounded-xl">
-                        <img className="h-8" src={`src/assets/icons/Microsoft.svg`} alt="" />
+                        <img className="h-8" src={`src/assets/icons/${props.company}.svg`} alt="" />
                     </div>
                     <div>
-                        <div className="font-medium text-2xl">Microsoft</div>
+                        <div className="font-medium text-2xl">{props.company}</div>
                         <div className="text-xl text-woodsmoke-400">10k+ працівників</div>
                     </div>
                 </div>
-                <Link to="/company-profile">
+                <Link to={`/company-profile/${props.company}`}>
                     <Button variant="light" size="sm" color="purpleHeart.2">Профіль компанії</Button>
                 </Link>
             </div>

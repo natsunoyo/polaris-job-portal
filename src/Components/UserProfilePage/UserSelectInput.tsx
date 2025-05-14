@@ -46,7 +46,8 @@ const UserSelectInput = (props: any) => {
             }}
         >
             <Combobox.Target>
-                <InputBase {...props.form.getInputProps(props.name)}
+                <InputBase
+                    {...props.form.getInputProps(props.name)}
                     size='lg'
                     withAsterisk
                     label={props.label}

@@ -1,10 +1,10 @@
 import { IconBriefcase, IconMapPin, IconPremiumRights, IconRecharging } from '@tabler/icons-react'
 
 const card = [
-  { name: "Місце роботи", icon: IconMapPin, value: "Вінниця" },
-  { name: "Освіта", icon: IconBriefcase, value: "Необов'язково" },
-  { name: "Зарплата", icon: IconPremiumRights, value: "20000 грн" },
-  { name: "Зайнятість", icon: IconRecharging, value: "Повна" },
+  { name: "Місце роботи", icon: IconMapPin, value: "Вінниця", id: "location" },
+  { name: "Освіта", icon: IconBriefcase, value: "Необов'язково", id: "eduLevelRequired" },
+  { name: "Зарплата", icon: IconPremiumRights, value: "20000 грн", id: "salaryOffered" },
+  { name: "Зайнятість", icon: IconRecharging, value: "Повна", id: "jobType" },
 ];
 
 const skills = ['React', 'Spring Boot', 'Java', 'Python', 'Node.js', 'MongoDB', 'Express', 'Django', 'PostgreSQL'];

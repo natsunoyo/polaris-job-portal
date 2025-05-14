@@ -38,9 +38,9 @@ const jobList = [
         applicants: 18,
         jobType: "Повна",
         location: "Київ",
-        salary: "32 000 грн",
+        salaryOfferedOffered: "32 000 грн",
         postedDaysAgo: 4,
-        education: "Онлайн/офлайн курси",
+        eduLevelRequired: "Онлайн/офлайн курси",
         description: "Amazon шукає контент-райтера-початківця для написання блогів та описів товарів. Досвід не обов’язковий — головне вміння писати українською."
     },
     {
@@ -49,9 +49,9 @@ const jobList = [
         applicants: 14,
         jobType: "Стажування/Інтернатура",
         location: "Львів",
-        salary: "17 000 грн",
+        salaryOffered: "17 000 грн",
         postedDaysAgo: 1,
-        education: "Онлайн/офлайн курси",
+        eduLevelRequired: "Онлайн/офлайн курси",
         description: "Google відкриває стажування для новачків у веброзробці. Навіть якщо ти ще студент — подавайся!"
     },
     {
@@ -60,9 +60,9 @@ const jobList = [
         applicants: 24,
         jobType: "Повна",
         location: "Харків",
-        salary: "38 000 грн",
+        salaryOffered: "38 000 грн",
         postedDaysAgo: 5,
-        education: "Передвища фахова",
+        eduLevelRequired: "Передвища фахова",
         description: "Microsoft шукає новачка у дизайні інтерфейсів. Вітається базове знання Figma та бажання вчитися."
     },
     {
@@ -71,9 +71,9 @@ const jobList = [
         applicants: 20,
         jobType: "Повна",
         location: "Одеса",
-        salary: "28 000 грн",
+        salaryOffered: "28 000 грн",
         postedDaysAgo: 7,
-        education: "Вища",
+        eduLevelRequired: "Вища",
         description: "IBM відкриває позицію для тих, хто хоче розпочати кар'єру в HR. Досвід не потрібен — навчимо!"
     },
     {
@@ -82,9 +82,9 @@ const jobList = [
         applicants: 31,
         jobType: "Повна",
         location: "Івано-Франківськ",
-        salary: "35 000 грн",
+        salaryOffered: "35 000 грн",
         postedDaysAgo: 6,
-        education: "Вища",
+        eduLevelRequired: "Вища",
         description: "Oracle запрошує новачків у команду аналітики. Вітається знання Excel та Google Таблиць."
     },
     {
@@ -93,9 +93,9 @@ const jobList = [
         applicants: 19,
         jobType: "Повна",
         location: "Чернівці",
-        salary: "27 000 грн",
+        salaryOffered: "27 000 грн",
         postedDaysAgo: 3,
-        education: "Необов'язково",
+        eduLevelRequired: "Необов'язково",
         description: "PayPal шукає креативну людину для ведення соцмереж. Якщо вмієш придумувати пости — це для тебе!"
     },
     {
@@ -104,9 +104,9 @@ const jobList = [
         applicants: 26,
         jobType: "Повна",
         location: "Дніпро",
-        salary: "34 000 грн",
+        salaryOffered: "34 000 грн",
         postedDaysAgo: 2,
-        education: "Передвища фахова",
+        eduLevelRequired: "Передвища фахова",
         description: "Cisco запрошує дизайнера-початківця до своєї команди. Базові навички Photoshop або Canva — плюс."
     },
     {
@@ -115,9 +115,9 @@ const jobList = [
         applicants: 12,
         jobType: "Стажування/Інтернатура",
         location: "Полтава",
-        salary: "14 000 грн",
+        salaryOffered: "14 000 грн",
         postedDaysAgo: 9,
-        education: "Онлайн/офлайн курси",
+        eduLevelRequired: "Онлайн/офлайн курси",
         description: "Amazon проводить стажування для новачків у сфері рекрутингу. Вивчай, як шукати таланти по всьому світу!"
     },
     {
@@ -126,9 +126,9 @@ const jobList = [
         applicants: 33,
         jobType: "Повна",
         location: "Київ",
-        salary: "31 000 грн",
+        salaryOffered: "31 000 грн",
         postedDaysAgo: 5,
-        education: "Вища",
+        eduLevelRequired: "Вища",
         description: "NVIDIA шукає помічника для роботи з маркетинговими кампаніями. Ідеально для новачка з інтересом до реклами."
     },
     {
@@ -137,9 +137,9 @@ const jobList = [
         applicants: 21,
         jobType: "Повна",
         location: "Тернопіль",
-        salary: "29 000 грн",
+        salaryOffered: "29 000 грн",
         postedDaysAgo: 4,
-        education: "Необов'язково",
+        eduLevelRequired: "Необов'язково",
         description: "Google відкриває вакансію контент-менеджера для тих, хто тільки починає шлях у діджиталі. Пишеш грамотно? Ласкаво просимо!"
     }
 ];

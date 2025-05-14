@@ -3,10 +3,21 @@ import { IconBell } from "@tabler/icons-react";
 import NavLinks from "./NavLinks";
 import { Link, useLocation } from "react-router-dom";
 import ProfileMenu from "./ProfileMenu";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getProfile } from "../../Services/ProfileService";
+import { setProfile } from "../../Slices/ProfileSlice";
 
 const Header = () => {
-    const user = useSelector((state: any) => state.user);
+    const dispatch = useDispatch();
+    const user = useSelector((state: any) => state.user)
+    useEffect(() => {
+        getProfile(user.id).then((response) => {
+            dispatch(setProfile(response));
+        }).catch((error: any) => {
+            console.log(error);
+        })
+    }, [])
     const location = useLocation();
     return location.pathname != "/signup" && location.pathname != "/login" && <div className="w-full bg-woodsmoke-950 text-white px-4 h-40 flex justify-between items-center gap-10 ">
 
