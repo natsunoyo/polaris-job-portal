@@ -12,12 +12,12 @@ const Header = () => {
     const dispatch = useDispatch();
     const user = useSelector((state: any) => state.user)
     useEffect(() => {
-        getProfile(user.id).then((response) => {
+        getProfile(user?.id).then((response) => {
             dispatch(setProfile(response));
         }).catch((error: any) => {
             console.log(error);
         })
-    }, [])
+    }, [user?.id])
     const location = useLocation();
     return location.pathname != "/signup" && location.pathname != "/login" && <div className="w-full bg-woodsmoke-950 text-white px-4 h-40 flex justify-between items-center gap-10 ">
 

@@ -19,7 +19,7 @@ const SignUpPage = () => {
             </div>
             <div className={`w-1/2 h-full  transition-all ease-in-out duration-500 ${location.pathname == "/signup" ? "rounded-r-full" : "rounded-l-full"} bg-woodsmoke-900 flex flex-col items-center justify-center gap-3`}>
                 <div className="flex gap-3 items-center" >
-                    <img src="src\assets\star.svg" className="h-35 w-35" />
+                    <img src="\assets\star.svg" className="h-35 w-35" />
                     <div className="text-8xl font-semibold flex gap-5 text-purple-heart-400">Polaris</div>
                 </div>
                 <div className="text-3xl text-woodsmoke-300 font-semibold">
