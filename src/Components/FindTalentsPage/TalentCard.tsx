@@ -16,7 +16,8 @@ const TalentCard = (props: any) => {
         <div className="flex justify-between">
             <div className="flex gap-2 items-center">
                 <div className="p-2  bg-woodsmoke-800 rounded-md">
-                    <Avatar className="w-[48px] h-[48px]" size="lg" src={`src/assets/avatars/${props.image}.jpg`} alt="" />
+                    <Avatar className="w-[48px] h-[48px]" size="lg" src={`/avatars/${props.image}.jpg`}
+                        alt="" />
                 </div>
                 <div>
                     <div className="font-semibold">{props.name}</div>

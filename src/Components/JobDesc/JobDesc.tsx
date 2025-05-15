@@ -12,7 +12,12 @@ const JobDesc = (props: any) => {
         <div className="flex justify-between">
             <div className="flex gap-2 p-3 items-center">
                 <div className="p-3  bg-woodsmoke-800 rounded-xl">
-                    <img className="h-14" src={`src/assets/icons/${props.company}.svg`} alt="" />
+                    <img className="h-14" src={`/icons/${props.company}.svg`}
+                        onError={({ currentTarget }) => {
+                            currentTarget.onerror = null; // prevents looping
+                            currentTarget.src = "/icons/default.png";
+                        }}
+                        alt="" />
                 </div>
                 <div>
                     <div className="font-semibold text-3xl">{props.jobTitle}</div>
@@ -62,7 +67,11 @@ const JobDesc = (props: any) => {
             <div className="flex justify-between mb-3">
                 <div className="flex gap-2 p-3 items-center">
                     <div className="p-3  bg-woodsmoke-800 rounded-xl">
-                        <img className="h-8" src={`src/assets/icons/${props.company}.svg`} alt="" />
+                        <img className="h-8" src={`/icons/${props.company}.svg`}
+                            onError={({ currentTarget }) => {
+                                currentTarget.onerror = null; // prevents looping
+                                currentTarget.src = "/icons/default.png";
+                            }} alt="" />
                     </div>
                     <div>
                         <div className="font-medium text-2xl">{props.company}</div>

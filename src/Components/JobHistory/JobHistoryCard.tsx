@@ -8,7 +8,11 @@ const JobHistoryCard = (props: any) => {
         <div className="flex justify-between">
             <div className="flex gap-2 items-center">
                 <div className="p-2  bg-woodsmoke-800 rounded-md">
-                    <img className="w-[48px] h-[48px]" src={`src/assets/icons/${props.company}.svg`} alt="" />
+                    <img className="w-[48px] h-[48px]" src={`/assets/icons/${props.company}.svg`}
+                        onError={({ currentTarget }) => {
+                            currentTarget.onerror = null; // prevents looping
+                            currentTarget.src = "/icons/default.png";
+                        }} alt="" />
                 </div>
                 <div>
                     <div className="font-semibold">{props.jobTitle}</div>

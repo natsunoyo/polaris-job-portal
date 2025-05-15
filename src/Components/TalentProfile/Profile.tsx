@@ -7,8 +7,8 @@ import CoursesCard from "../UserProfilePage/UserCoursesCard"
 const Profile = (props: any) => {
     return <div className="w-2/3 px-5">
         <div className="relative">
-            <img className="rounded-t-2xl" src="src/assets/profilePage/banner.jpg" alt="" />
-            <img className=" w-48 h-48 rounded-full -bottom-1/3 absolute left-3 border-woodsmoke-950 border-8" src="src/assets/avatars/avatar1.jpg" alt="" />
+            <img className="rounded-t-2xl" src="/assets/profilePage/banner.jpg" alt="" />
+            <img className=" w-48 h-48 rounded-full -bottom-1/3 absolute left-3 border-woodsmoke-950 border-8" src="/avatars/avatar1.jpg" alt="" />
         </div>
 
         <div className="mt-24 px-5">

@@ -9,11 +9,15 @@ const JobCard = (props: any) => {
         <div className="flex justify-between">
             <div className="flex gap-2 items-center">
                 <div className="p-2  bg-woodsmoke-800 rounded-md">
-                    <img className="w-[48px] h-[48px]" src={`src/assets/icons/${props.company}.svg`} alt="" />
+                    <img className="w-[48px] h-[48px]" src={`/icons/${props.company}.svg`}
+                        onError={({ currentTarget }) => {
+                            currentTarget.onerror = null; // prevents looping
+                            currentTarget.src = "/icons/default.png";
+                        }} alt="" />
                 </div>
                 <div>
                     <div className="font-semibold">{props.jobTitle}</div>
-                    <div className="text-xs text-woodsmoke-400">{props.company} &#x2022; {props.applicants ? props.applicants.tength : 0} кандидатів</div>
+                    <div className="text-xs text-woodsmoke-400">{props.company} &#x2022; {props.applicants ? props.applicants.length : 0} кандидатів</div>
                 </div>
             </div>
             <IconBookmark className="text-silver-sand-400 cursor-pointer" />

@@ -8,15 +8,20 @@ const Company = () => {
     return <div className="w-2/3 p-3">
         {/* Company`s header */}
         <div className="relative">
-            <img className="rounded-t-2xl" src="src/assets/profilePage/banner.jpg" alt="" />
-            <img className=" w-48 h-48 rounded-full -bottom-1/3 absolute left-3 border-woodsmoke-950 border-8 bg-woodsmoke-950" src="src/assets/icons/Glyanets.svg" alt="" />
+            <img className="rounded-t-2xl" src="/assets/profilePage/banner.jpg" alt="" />
+            <img className=" w-48 h-48 rounded-full -bottom-1/3 absolute left-3 border-woodsmoke-950 border-8 bg-woodsmoke-950" src="/icons/Glyanets.svg"
+                onError={({ currentTarget }) => {
+                    currentTarget.onerror = null; // prevents looping
+                    currentTarget.src = "/icons/default.png";
+                }}
+                alt="" />
         </div>
         <div className="mt-24 px-5">
             <div className="text-3xl font-semibold flex justify-between">Глянець <Avatar.Group className="justify-center">
-                <Avatar src="src/assets/avatars/avatar1.jpg" />
-                <Avatar src="src/assets/avatars/avatar2.png" />
-                <Avatar src="src/assets/avatars/avatar3.jpg" />
-                <Avatar src="src/assets/avatars/avatar5.jpg" />
+                <Avatar src="/avatars/avatar1.jpg" />
+                <Avatar src="/avatars/avatar2.png" />
+                <Avatar src="/avatars/avatar3.jpg" />
+                <Avatar src="/avatars/avatar5.jpg" />
                 <Avatar>3k+</Avatar>
             </Avatar.Group></div>
             <div className="text-2xl flex gap-1 items-center"> <IconBriefcase className="h-5 w-5" />Компанія</div>

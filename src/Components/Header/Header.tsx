@@ -23,7 +23,7 @@ const Header = () => {
 
         {/* Logo */}
         <div className="flex gap-3 items-center pl-3" >
-            <img src="src\assets\star.svg" className="h-15 w-15" />
+            <img src="\assets\star.svg" className="h-15 w-15" />
             <Link to={'/'}>
                 <div className="text-3xl font-semibold flex gap-5 text-purple-heart-400">Polaris</div>
             </Link>

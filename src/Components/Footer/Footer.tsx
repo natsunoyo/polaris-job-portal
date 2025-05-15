@@ -9,7 +9,7 @@ const Footer = () => {
             <div className="flex gap-3 items-center" >
 
                 {/* Logo, slogan and social media */}
-                <img src="src\assets\star.svg" className="h-10 w-10" />
+                <img src="\assets\star.svg" className="h-10 w-10" />
                 <div className="text-xl font-semibold flex gap-5 text-white">Polaris</div>
             </div>
             <div className="text-sm text-silver-sand-400">Your guiding star of your career journey.</div>

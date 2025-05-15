@@ -20,7 +20,8 @@ const JobCategory = () => {
                     <div className="flex flex-col items-center w-64 gap-2 border border-purple-heart-600 p-5 rounded-xl 
                     hover:cursor-pointer hover:shadow-[0_0_5px_2px_black] my-5 transition duration-300 ease-in-out !shadow-purple-heart-300">
                         <div className="p-2 bg-purple-heart-300 rounded-full " >
-                            <img className="h-8 w-8" src={`src/assets/categories/${category}.svg`} />
+                            <img className="h-8 w-8" src={`/assets/categories/${category}.svg`}
+                            />
                         </div>
 
                         <div className="text-silver-sand-200 text-2xl font-semibold">

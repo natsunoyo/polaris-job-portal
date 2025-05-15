@@ -15,10 +15,10 @@ const Working = () => {
 
             {/* Main image */}
             <div className="relative">
-                <img className="w-[36rem] mt-5" src="src\assets\dream-job-girl-with-a-laptop.png" alt="" />
+                <img className="w-[36rem] mt-5" src="/assets/dream-job-girl-with-a-laptop.png" alt="" />
 
                 <div className="w-36 flex top-[0%] right-[-6%] absolute flex-col items-center gap-1 border border-purple-heart-600 rounded-xl py-3 px-1 backdrop-blur-md">
-                    <Avatar className="h-16 w-16" src="src\assets\avatars\avatar1.jpg" />
+                    <Avatar className="h-16 w-16" src="/assets/avatars/avatar1.jpg" />
                     <div className="text-sm font-semibold text-silver-sand-200 text-center">Complete your profile</div>
                     <div className="text-xs text-silver-sand-400">70% completed</div>
                 </div>
@@ -29,7 +29,7 @@ const Working = () => {
                 {
                     howtoapply.map((item, index) => <div key={index} className="flex items-center gap-4">
                         <div className="p-2.5 bg-purple-heart-300 rounded-full">
-                            <img className="w-12 h-12" src={`src/assets/working/${item.title}.svg`} alt="" />
+                            <img className="w-12 h-12" src={`/assets/working/${item.title}.svg`} alt="" />
                         </div>
                         <div>
                             <div className="text-xl font-semibold text-silver-sand-200">{item.title}</div>

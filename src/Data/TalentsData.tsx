@@ -35,7 +35,7 @@ const talentsData = [
         salary: 30000,
         skills: ["SQL", "Agile Methodologies", "Google Cloud"],
         bio: "Цікавлюсь аналітикою та бізнес-процесами. Шукаю можливість розпочати кар'єру бізнес-аналітика в команді, яка готова ділитись досвідом.",
-        image: "TalentAvatar1"
+        image: "talentAvatar1"
     },
     {
         name: "Максим Романенко",
@@ -44,7 +44,7 @@ const talentsData = [
         salary: 20000,
         skills: ["HTML", "Git", "SEO"],
         bio: "Пишу статті та блоги на технічні теми. Хочу розвиватися в напрямку створення корисного контенту для ІТ-проєктів.",
-        image: "TalentAvatar3"
+        image: "talentAvatar3"
     },
     {
         name: "Ірина Демчук",
@@ -53,7 +53,7 @@ const talentsData = [
         salary: 35000,
         skills: ["Python", "SQL", "TensorFlow"],
         bio: "Цікавлюсь машинним навчанням та обробкою даних. Активно навчаюсь і хочу знайти перше стажування або роботу в data-напрямку.",
-        image: "TalentAvatar2"
+        image: "talentAvatar2"
     },
     {
         name: "Андрій Шевчук",
@@ -62,7 +62,7 @@ const talentsData = [
         salary: 25000,
         skills: ["Figma", "HTML", "CSS"],
         bio: "Маю інтерес до дизайну інтерфейсів і вивчаю інструменти для створення сучасних веб-рішень. Шукаю можливість працювати в команді дизайнерів.",
-        image: "TalentAvatar4"
+        image: "talentAvatar4"
     },
     {
         name: "Наталія Литвин",
@@ -71,7 +71,7 @@ const talentsData = [
         salary: 15000,
         skills: ["Google Analytics", "SMM", "Email Marketing"],
         bio: "Цікавлюсь діджитал-маркетингом та просуванням брендів онлайн. Хочу застосовувати свої знання на практиці та здобувати нові навички.",
-        image: "TalentAvatar5"
+        image: "talentAvatar5"
     },
     {
         name: "Олег Білий",
@@ -80,7 +80,7 @@ const talentsData = [
         salary: 33000,
         skills: ["HR Tech", "Google Sheets", "CRM-системи"],
         bio: "Цікавлюсь підбором персоналу та сучасними інструментами управління командою. Прагну приєднатися до HR-відділу в динамічній компанії.",
-        image: "TalentAvatar6"
+        image: "talentAvatar6"
     },
     {
         name: "Тетяна Вернигора",
@@ -89,7 +89,7 @@ const talentsData = [
         salary: 40000,
         skills: ["JavaScript", "React", "Git"],
         bio: "Вивчаю веброзробку та хочу розпочати кар'єру фронтенд-розробниці. Готова працювати над реальними проєктами та швидко навчатись.",
-        image: "TalentAvatar1"
+        image: "talentAvatar1"
     },
     {
         name: "Руслан Гаврилюк",
@@ -98,7 +98,7 @@ const talentsData = [
         salary: 20000,
         skills: ["Zendesk", "LiveChat", "Helpdesk Tools"],
         bio: "Мені подобається допомагати людям. Шукаю роботу в технічній підтримці, де зможу навчатися новому та вирішувати задачі користувачів.",
-        image: "TalentAvatar3"
+        image: "talentAvatar3"
     },
     {
         name: "Марія Зінченко",
@@ -107,7 +107,7 @@ const talentsData = [
         salary: 30000,
         skills: ["Node.js", "MongoDB", "PostgreSQL"],
         bio: "Цікавлюсь бекенд-розробкою. Прагну долучитися до команди розробників та розвиватися в напрямку створення серверної логіки.",
-        image: "TalentAvatar2"
+        image: "talentAvatar2"
     },
     {
         name: "Дмитро Остапчук",
@@ -116,7 +116,7 @@ const talentsData = [
         salary: 35000,
         skills: ["Python", "Pandas", "Machine Learning"],
         bio: "Захоплююсь аналізом даних і автоматизацією рішень. Шукаю можливість працювати над реальними задачами в сфері data science.",
-        image: "TalentAvatar4"
+        image: "talentAvatar4"
     }
 ];
 
@@ -127,7 +127,7 @@ const profileData = {
     salary: 30000,
     skills: ["SQL", "Agile Methodologies", "Google Cloud"],
     bio: "Цікавлюсь аналітикою та бізнес-процесами. Шукаю можливість розпочати кар'єру бізнес-аналітика в команді, яка готова ділитись досвідом.",
-    image: "TalentAvatar1",
+    image: "talentAvatar1",
     education: [
         {
             title: "VNTU",

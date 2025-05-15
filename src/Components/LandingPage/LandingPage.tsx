@@ -31,17 +31,17 @@ const LandingPage = () => {
 
             <div className="w-[45%] flex items-center justify-center">
                 <div className="w-[60rem] relative">
-                    <img src="src\assets\dream-job-violet.png" alt="Reaching for a star" />
+                    <img src="\assets\dream-job-violet.png" alt="Reaching for a star" />
 
                     {/* Avatar mini-card */}
                     <div className="w-fit absolute top-[60%] left-[-15%] border-purple-heart-500 border rounded-lg p-2 backdrop-blur-md">
                         <div className="text-center mb-1 text-sm text-silver-sand-200">10k+ вже знайшли омріяну роботу</div>
                         <Avatar.Group className="justify-center">
-                            <Avatar src="src\assets\avatars\avatar1.jpg" />
-                            <Avatar src="src\assets\avatars\avatar2.png" />
-                            <Avatar src="src\assets\avatars\avatar3.jpg" />
-                            <Avatar src="src\assets\avatars\avatar4.jpg" />
-                            <Avatar src="src\assets\avatars\avatar5.jpg" />
+                            <Avatar src="/avatars/avatar1.jpg" />
+                            <Avatar src="/avatars/avatar2.png" />
+                            <Avatar src="/avatars/avatar3.jpg" />
+                            <Avatar src="/avatars/avatar4.jpg" />
+                            <Avatar src="/avatars/avatar5.jpg" />
                             <Avatar>9k+</Avatar>
                         </Avatar.Group>
 
@@ -51,7 +51,7 @@ const LandingPage = () => {
                     <div className="w-fit absolute top-[25%] right-[-10%] border-purple-heart-500 border rounded-lg p-2 backdrop-blur-md gap-5 flex flex-col">
                         <div className="flex gap-2 items-center">
                             <div className="w-10 h-10 p-1 ">
-                                <img src="src\assets\google-logo.png" alt="google logo" />
+                                <img src="\assets\google-logo.png" alt="google logo" />
                             </div>
                             <div className="text-sm text-silver-sand-200">
                                 <div>Software Engineer</div>

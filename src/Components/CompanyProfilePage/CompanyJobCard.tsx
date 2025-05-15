@@ -6,7 +6,11 @@ const CompanyJobCard = (props: any) => {
         <div className="flex justify-between">
             <div className="flex gap-2 items-center">
                 <div className="p-2  bg-woodsmoke-700 rounded-md">
-                    <img className="w-[48px] h-[48px]" src={`src/assets/icons/${props.name}.svg`} alt="" />
+                    <img className="w-[48px] h-[48px]" src={`/assets/icons/${props.name}.svg`}
+                        onError={({ currentTarget }) => {
+                            currentTarget.onerror = null; // prevents looping
+                            currentTarget.src = "/icons/default.png";
+                        }} alt="" />
                 </div>
                 <div className="flex flex-col gap-1">
                     <div className="font-semibold text-xl">{props.name}</div>

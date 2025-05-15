@@ -3,7 +3,11 @@ const EduCard = (props: any) => {
         <div className="flex justify-between">
             <div className="flex gap-2 items-center">
                 <div className="p-2 bg-woodsmoke-800 rounded-md">
-                    <img className="h-7" src={`src/assets/companies/${props.title}.png`} alt="" />
+                    <img className="h-7" src={`/assets/companies/${props.title}.png`}
+                        onError={({ currentTarget }) => {
+                            currentTarget.onerror = null; // prevents looping
+                            currentTarget.src = "/icons/default.png";
+                        }} alt="" />
                 </div>
                 <div className="flex flex-col">
                     <div className="font-semibold">{props.title}</div>

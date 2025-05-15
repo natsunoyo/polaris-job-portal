@@ -30,7 +30,11 @@ const UserEduCard = (props: any) => {
 
                 {!edit ? <> <div className="flex gap-2 items-center">
                     <div className="p-2 bg-woodsmoke-800 rounded-md">
-                        <img className="h-7" src={`src/assets/companies/${props.eduInst}.png`} alt="" />
+                        <img className="h-7" src={`/assets/companies/${props.eduInst}.png`}
+                            onError={({ currentTarget }) => {
+                                currentTarget.onerror = null; // prevents looping
+                                currentTarget.src = "/icons/default.png";
+                            }} alt="" />
                     </div>
 
                     <div className="flex flex-col">

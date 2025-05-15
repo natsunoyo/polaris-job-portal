@@ -9,6 +9,7 @@ import Education from "./Education"
 import Course from "./CourseProfile"
 import { useHover } from "@mantine/hooks"
 import { successNotification } from "../../Services/NotificationService"
+import { getBase64 } from "../../Services/Utilities"
 
 
 const UserProfile = () => {
@@ -23,18 +24,10 @@ const UserProfile = () => {
 
     }
 
-    const getBase64 = (file: any) => {
-        return new Promise((resolve, reject) => {
-            const reader = new FileReader()
-            reader.readAsDataURL(file)
-            reader.onload = () => { resolve(reader.result) }
-            reader.onerror = error => { reject(error) }
-        })
-    }
 
     return <div className=" pt-5 w-4/5 mx-auto">
         <div className="relative">
-            <img className="rounded-t-2xl" src="src/assets/profilePage/banner.jpg" alt="" />
+            <img className="rounded-t-2xl" src="/assets/profilePage/banner.jpg" alt="" />
 
             <div ref={ref} className="absolute flex items-center justify-center -bottom-1/3 left-3">
 
