@@ -1,3 +1,5 @@
+import { formatDate } from "../../Services/Utilities";
+
 const EduCard = (props: any) => {
     return <div className="flex flex-col gap-2">
         <div className="flex justify-between">
@@ -15,7 +17,7 @@ const EduCard = (props: any) => {
                 </div>
             </div>
             <div className="text-md text-silver-sand-400">
-                {props.startDate} - {props.endDate}
+                {formatDate(props.startDate)}- {formatDate(props.endDate)}
                 <div className="text-md text-silver-sand-400">
                     {props.degree}
                 </div>

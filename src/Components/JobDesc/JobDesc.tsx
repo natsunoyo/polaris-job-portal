@@ -55,9 +55,10 @@ const JobDesc = (props: any) => {
                     <Button variant="light" size="sm" color="purpleHeart.2">{props.edit ? "Редагувати" : "Подати заявку"}</Button>
                 </Link>
                 }
-                {applied && <Button variant="light" size="sm" color="green.6">Заявку подано</Button>
-                }
 
+                {!props.edit && applied && <Button variant="light" size="sm" color="green.6">Заявку подано</Button>
+
+                }
 
                 {props.edit
                     ? <Button color="red.5" size="sm" variant="outline">Видалити</Button>

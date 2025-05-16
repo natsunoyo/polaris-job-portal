@@ -6,7 +6,7 @@ const NavLinks = () => {
         { name: "Пошук роботи", url: "jobs" },
         { name: "Пошук кандидатів", url: "talents" },
         { name: "Створити вакансію", url: "post-job" },
-        { name: "Опубліковані вакансії", url: "posted-jobs" },
+        { name: "Опубліковані вакансії", url: "posted-jobs/0" },
         { name: "Історія", url: "job-history" },
 
     ]

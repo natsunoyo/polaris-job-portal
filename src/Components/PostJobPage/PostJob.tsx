@@ -6,8 +6,10 @@ import { isNotEmpty, useForm } from "@mantine/form";
 import { postJob } from "../../Services/JobService";
 import { errorNotification, successNotification } from "../../Services/NotificationService";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const PostJob = () => {
+    const user = useSelector((state: any) => state.user);
     const navigate = useNavigate()
     const select = fields;
     const form = useForm({
@@ -40,9 +42,22 @@ const PostJob = () => {
     const handlePost = () => {
         form.validate()
         if (!form.isValid()) return
-        postJob(form.getValues()).then((response) => {
+        postJob({ ...form.getValues(), postedBy: user.id, jobStatus: "ACTIVE" }).then((response) => {
             successNotification("Успіх", "Вакансія успішно опублікована")
-            navigate("/posted-jobs")
+            navigate(`/posted-jobs/${response.id}`)
+
+        }).catch((err) => {
+            errorNotification("Виникла помилка при публікації вакансії", err.response.data.errorMessage)
+            console.log(err)
+        })
+    }
+
+    const handleDraft = () => {
+        form.validate()
+        if (!form.isValid()) return
+        postJob({ ...form.getValues(), postedBy: user.id, jobStatus: "DRAFT" }).then((response) => {
+            successNotification("Успіх", "Чернетку успішно збережено")
+            navigate(`/posted-jobs/${response.id}`)
 
         }).catch((err) => {
             errorNotification("Виникла помилка при публікації вакансії", err.response.data.errorMessage)
@@ -74,7 +89,7 @@ const PostJob = () => {
             </div>
             <div className="flex gap-4">
                 <Button onClick={handlePost} variant="light" color="purpleHeart.2">Опублікувати вакансію</Button>
-                <Button variant="outline" color="purpleHeart.2">Зберегти чернетку</Button>
+                <Button onClick={handleDraft} variant="outline" color="purpleHeart.2">Зберегти чернетку</Button>
             </div>
         </div>
     </div>

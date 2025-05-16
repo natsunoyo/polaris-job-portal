@@ -62,7 +62,7 @@ const JobHistory = () => {
                     <Tabs.Tab value="OFFERED" >
                         Пропозиції
                     </Tabs.Tab>
-                    <Tabs.Tab value="PENDING" >
+                    <Tabs.Tab value="INTERVIEWING" >
                         Співбесіди
                     </Tabs.Tab>
                 </Tabs.List>
