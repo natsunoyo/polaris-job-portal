@@ -22,7 +22,7 @@ const Profile = (props: any) => {
     return <div className="w-2/3 px-5">
         <div className="relative">
             <img className="rounded-t-2xl" src="/assets/profilePage/banner.jpg" alt="" />
-            <img className=" w-48 h-48 rounded-full -bottom-1/3 absolute left-3 border-woodsmoke-950 border-8" src={profile.picture ? `data:image/jpeg;base64,${profile.picture}` : "avatar.png"} alt="" />
+            <img className=" w-48 h-48 rounded-full -bottom-1/3 absolute left-3 border-woodsmoke-950 border-8" src={profile.picture ? `data:image/jpeg;base64,${profile.picture}` : "/avatars/defaultAvatar.jpg"} alt="" />
         </div>
 
         <div className="mt-24 px-5">

@@ -55,7 +55,7 @@ const TalentCard = (props: any) => {
         <div className="flex justify-between">
             <div className="flex gap-2 items-center">
                 <div className="p-2  bg-woodsmoke-800 rounded-md">
-                    <Avatar className="w-[48px] h-[48px]" size="lg" src={profile?.picture ? `data:image/jpeg;base64,${profile?.picture}` : "avatar.png"} alt="" />
+                    <Avatar className="w-[48px] h-[48px]" size="lg" src={profile?.picture ? `data:image/jpeg;base64,${profile?.picture}` : "/avatars/defaultAvatar.jpg"} alt="" />
                 </div>
                 <div>
                     <div className="font-semibold">{props.name}</div>
@@ -78,7 +78,7 @@ const TalentCard = (props: any) => {
                 <IconCalendarMonth /> Співбесіда запланована на {formatInterviewTime(props.interviewTime)}
             </div> : <div className="flex justify-between">
                 <div className="font-semibold">
-                    &#8372; {profile?.salary}
+                    &#8372; {props.expectedSalary ? props.expectedSalary : 0}
                 </div>
                 <div className="flex gap-1 text-sm items-center text-woodsmoke-500">
                     <IconMapPin className="h-5 w-5" /> {profile?.location}

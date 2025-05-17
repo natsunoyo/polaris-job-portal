@@ -19,6 +19,9 @@ const PostedJob = (props: any) => {
                     <Tabs.Tab value="DRAFT">
                         Чернетки [{props.jobList?.filter((job: any) => job?.jobStatus === "DRAFT").length}]
                     </Tabs.Tab>
+                    <Tabs.Tab value="CLOSED">
+                        Закриті [{props.jobList?.filter((job: any) => job?.jobStatus === "CLOSED").length}]
+                    </Tabs.Tab>
 
                 </Tabs.List>
             </Tabs>
