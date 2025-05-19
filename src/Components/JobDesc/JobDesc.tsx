@@ -34,8 +34,6 @@ const JobDesc = (props: any) => {
         }).catch((err) => {
             errorNotification("Виникла помилка", err.response.data.errorMessage)
         })
-        // let updatedJob = { ...props, jobStatus: "CLOSED" }
-        // dispatch(changeProfile(updatedJob))
     }
 
     useEffect(() => {
@@ -51,10 +49,17 @@ const JobDesc = (props: any) => {
         <div className="flex justify-between">
             <div className="flex gap-2 p-3 items-center">
                 <div className="p-3  bg-woodsmoke-800 rounded-xl">
-                    <img className="h-14" src={`/icons/${props.company}.svg`}
-                        onError={({ currentTarget }) => {
-                            currentTarget.onerror = null; // prevents looping
-                            currentTarget.src = "/icons/default.png";
+                    <img className="h-14" src={`/icons/${`${props.company}.svg` ? `${props.company}.svg` : `${props.company}.png`}`}
+                        onError={(e) => {
+                            const img = e.currentTarget;
+
+                            if (img.src.endsWith('.svg')) {
+                                img.src = `/icons/${props.company}.png`;
+                            }
+
+                            else if (img.src.endsWith('.png')) {
+                                img.src = '/icons/default-placeholder.png';
+                            }
                         }}
                         alt="" />
                 </div>
@@ -132,7 +137,7 @@ const JobDesc = (props: any) => {
                 </Link>
             </div>
             <div className="text-silver-sand-300 pl-3 text-justify">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure, ea. Facilis temporibus corporis recusandae, expedita obcaecati ad ex! Nemo, earum?
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores qui eveniet ea magni doloribus unde eligendi facilis eum delectus eius?
             </div>
         </div>
     </div>

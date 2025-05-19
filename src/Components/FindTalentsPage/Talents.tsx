@@ -10,6 +10,8 @@ const Talents = () => {
     const [talents, setTalents] = useState<any>([])
     const filter = useSelector((state: any) => state.filter)
     const [filteredTalents, setFilteredTalents] = useState<any>([])
+    const sort = useSelector((state: any) => state.sort)
+
     useEffect(() => {
         dispatch(resetFilter())
         getAllProfiles().then((res) => {
@@ -18,6 +20,19 @@ const Talents = () => {
             console.log(err)
         })
     }, [])
+
+    useEffect(() => {
+        if (sort === "За зарплатою (від найменшої до найбільшої)") {
+            setTalents(
+                [...talents].sort((a: any, b: any) => a.expectedSalary - b.expectedSalary)
+            );
+        } else if (sort === "За зарплатою (від найбільшої до найменшої)") {
+            setTalents(
+                [...talents].sort((a: any, b: any) => b.expectedSalary - a.expectedSalary)
+            );
+        }
+
+    }, [sort])
 
     useEffect(() => {
         let filterTalent = talents

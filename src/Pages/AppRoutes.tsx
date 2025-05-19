@@ -16,6 +16,7 @@ import TalentProfilePage from "./TalentProfilePage"
 import UserProfilePage from "./UserProfilePage"
 import { useSelector } from "react-redux"
 import Authorship from "../Components/Footer/Authorship"
+import PrivateRoute from "./PrivateRoute"
 
 const AppRoutes = () => {
     const user = useSelector((state: any) => state.user)
@@ -23,19 +24,23 @@ const AppRoutes = () => {
         <Header />
         <Divider size="xs" mx="md" />
         <Routes>
-            <Route path='/talents' element={<FindTalentsPage />} />
-            <Route path='/talent-profile/:id' element={<TalentProfilePage />} />
-            <Route path='/job-description/:id' element={<JobDescPage />} />
-            <Route path="/company-profile/:name" element={<CompanyProfilePage />} />
-            <Route path='/post-job/:id' element={<PostJobPage />} />
-            <Route path="/posted-jobs/:id" element={<PostedJobsPage />} />
-            <Route path="/job-history" element={<JobHistoryPage />} />
-            <Route path="/profile" element={<UserProfilePage />} />
             <Route path="/signup" element={user ? <Navigate to="/" /> : <SignUpPage />} />
             <Route path="/login" element={user ? <Navigate to="/" /> : <SignUpPage />} />
-            <Route path="/apply/:id" element={<ApplyPage />} />
-            <Route path="/jobs" element={<FindJobPage />} />
-            <Route path='*' element={<HomePage />} />
+            <Route path='' element={<HomePage />} />
+
+            <Route element={<PrivateRoute />}>
+                <Route path='/talents' element={<FindTalentsPage />} />
+                <Route path='/talent-profile/:id' element={<TalentProfilePage />} />
+                <Route path='/job-description/:id' element={<JobDescPage />} />
+                <Route path="/company-profile/:name" element={<CompanyProfilePage />} />
+                <Route path='/post-job/:id' element={<PostJobPage />} />
+                <Route path="/posted-jobs/:id" element={<PostedJobsPage />} />
+                <Route path="/job-history" element={<JobHistoryPage />} />
+                <Route path="/profile" element={<UserProfilePage />} />
+                <Route path="/apply/:id" element={<ApplyPage />} />
+                <Route path="/jobs" element={<FindJobPage />} />
+            </Route>
+
         </Routes>
         <Footer />
         <Divider size="xs" mx="md" />

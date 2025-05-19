@@ -6,9 +6,16 @@ const CoursesCard = (props: any) => {
             <div className="flex gap-2 items-center">
                 <div className="p-2 bg-woodsmoke-800 rounded-md">
                     <img className="h-7" src={`/assets/companies/${props.company}.png`}
-                        onError={({ currentTarget }) => {
-                            currentTarget.onerror = null; // prevents looping
-                            currentTarget.src = "/icons/default.png";
+                        onError={(e) => {
+                            const img = e.currentTarget;
+
+                            if (img.src.endsWith('.svg')) {
+                                img.src = `/icons/${props.company}.png`;
+                            }
+
+                            else if (img.src.endsWith('.png')) {
+                                img.src = '/icons/default.png';
+                            }
                         }} alt="" />
                 </div>
                 <div className="flex flex-col">

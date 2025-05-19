@@ -4,15 +4,22 @@ import AboutCompany from "./AboutCompany"
 import CompanyVacancies from "./CompanyVacancies"
 import CompanyEmployees from "./CompanyEmployees"
 
-const Company = () => {
+const Company = (props: any) => {
     return <div className="w-2/3 p-3">
         {/* Company`s header */}
         <div className="relative">
             <img className="rounded-t-2xl" src="/assets/profilePage/banner.jpg" alt="" />
             <img className=" w-48 h-48 rounded-full -bottom-1/3 absolute left-3 border-woodsmoke-950 border-8 bg-woodsmoke-950" src="/icons/Glyanets.svg"
-                onError={({ currentTarget }) => {
-                    currentTarget.onerror = null; // prevents looping
-                    currentTarget.src = "/icons/default.png";
+                onError={(e) => {
+                    const img = e.currentTarget;
+
+                    if (img.src.endsWith('.svg')) {
+                        img.src = `/icons/${props.company}.png`;
+                    }
+
+                    else if (img.src.endsWith('.png')) {
+                        img.src = '/icons/default.png';
+                    }
                 }}
                 alt="" />
         </div>

@@ -15,10 +15,10 @@ const PostedJobDesc = (props: any) => {
             setArr(props.applicants?.filter((x: any) => x.applicationStatus == "INTERVIEWING"))
         }
         else if (value == "offered") {
-            props.applicants?.filter((x: any) => x.applicationStatus == "OFFERED")
+            setArr(props.applicants?.filter((x: any) => x.applicationStatus == "OFFERED"))
         }
         else if (value == "rejected") {
-            props.applicants?.filter((x: any) => x.applicationStatus == "REJECTED")
+            setArr(props.applicants?.filter((x: any) => x.applicationStatus == "REJECTED"))
         }
     }
     useEffect(() => {

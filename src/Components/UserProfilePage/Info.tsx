@@ -1,9 +1,9 @@
-import { ActionIcon } from "@mantine/core"
-import { IconPencil, IconBriefcase, IconMapPin, IconCheck, IconX } from "@tabler/icons-react"
+import { ActionIcon, NumberInput } from "@mantine/core"
+import { IconPencil, IconBriefcase, IconMapPin, IconCheck, IconX, IconCash } from "@tabler/icons-react"
 import UserSelectInput from "./UserSelectInput"
 import fields from "../../Data/ProfileData"
 import { useState } from "react"
-import { useForm } from '@mantine/form';
+import { isNotEmpty, useForm } from '@mantine/form';
 import { useDispatch, useSelector } from "react-redux"
 import { changeProfile } from "../../Slices/ProfileSlice"
 import { successNotification } from "../../Services/NotificationService"
@@ -17,13 +17,28 @@ const Info = () => {
     const handleClick = () => {
         if (!edit) {
             setEdit(true);
-            form.setValues({ jobTitle: profile.jobTitle, eduLevel: profile.eduLevel, location: profile.location })
+            form.setValues({
+                jobTitle: profile.jobTitle,
+                eduLevel: profile.eduLevel,
+                location: profile.location,
+                expectedSalary: profile.expectedSalary
+            })
         } else setEdit(false);
     }
 
     const form = useForm({
         mode: 'controlled',
-        initialValues: { jobTitle: '', eduLevel: '', location: '' },
+        initialValues: {
+            jobTitle: '',
+            eduLevel: '',
+            location: '',
+            expectedSalary: 8000
+        },
+        validate: {
+            jobTitle: isNotEmpty("Введіть бажану посаду"),
+            eduLevel: isNotEmpty("Введіть найвищий рівень освіти"),
+            location: isNotEmpty("Введіть місце проживання/бажане місце роботи"),
+        }
     });
     const handleSave = () => {
         setEdit(false);
@@ -35,7 +50,7 @@ const Info = () => {
 
 
     return <>
-        <div className="text-3xl font-semibold flex justify-between pt-4 pl-3">
+        <div className="text-4xl font-semibold flex justify-between pt-4 pl-3">
             {user.name} <div>
                 {edit && <ActionIcon onClick={handleSave} size="xl" variant="subtle" color={edit ? "green.6" : "purpleHeart.2"}>
                     {<IconCheck size="xl" />}
@@ -53,18 +68,25 @@ const Info = () => {
                             <UserSelectInput form={form} name="jobTitle" {...select[0]} />
                             <UserSelectInput form={form} name="eduLevel" {...select[1]} />
                         </div>
-                        <UserSelectInput form={form} name="location" {...select[2]} />
+                        <div className="flex gap-10 [&>*]:w-1/2 mb-3">
+                            <UserSelectInput form={form} name="location" {...select[2]} />
+                            <NumberInput hideControls clampBehavior="strict" min={8000} max={80000} withAsterisk size="lg" label="Бажана зарплата" {...form.getInputProps('expectedSalary')} />
+                        </div>
                     </div>
                 </>
                 : <>
-                    <div className="pr-3 pl-3">
-                        <div className="text-2xl flex gap-1 items-center">
+                    <div className="pr-3 pl-3 flex flex-col gap-1">
+                        <div className="text-3xl flex gap-2 items-center">
                             <IconBriefcase className="h-5 w-5" />
                             {profile.jobTitle}
                         </div>
-                        <div className="text-lg flex gap-1 items-center text-silver-sand-600">
+                        <div className="text-xl flex gap-2 items-center text-silver-sand-600">
                             <IconMapPin className="h-5 w-5" />
                             {profile.location}
+                        </div>
+                        <div className="text-xl flex gap-2 items-center text-silver-sand-600">
+                            <IconCash className="h-5 w-5" />
+                            Бажана заробітна плата: {profile.expectedSalary} грн
                         </div>
                     </div>
                 </>

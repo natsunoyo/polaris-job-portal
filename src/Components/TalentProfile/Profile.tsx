@@ -1,5 +1,5 @@
 import { Button, Divider } from "@mantine/core"
-import { IconBriefcase, IconMapPin } from "@tabler/icons-react"
+import { IconBriefcase, IconCash, IconMapPin } from "@tabler/icons-react"
 import EduCard from "./EduCard"
 import CoursesCard from "../UserProfilePage/UserCoursesCard"
 import { useParams } from "react-router-dom"
@@ -27,9 +27,13 @@ const Profile = (props: any) => {
 
         <div className="mt-24 px-5">
             <div className="text-3xl font-semibold flex justify-between">{profile?.name} <Button variant="light" color="purpleHeart.2">Написати</Button></div>
-            <div className="text-2xl flex gap-1 items-center"> <IconBriefcase className="h-5 w-5" />{profile?.jobTitle}</div>
-            <div className="text-lg flex gap-1 items-center text-silver-sand-600">
+            <div className="text-xl flex gap-1 items-center"> <IconBriefcase className="h-5 w-5" />{profile?.jobTitle}</div>
+            <div className="text-xl flex gap-1 items-center text-silver-sand-600">
                 <IconMapPin className="h-5 w-5" />{profile?.location}
+            </div>
+            <div className="text-xl flex gap-1 items-center text-silver-sand-600">
+                <IconCash className="h-5 w-5" />
+                Бажана заробітна плата: {profile.expectedSalary} грн
             </div>
         </div>
         <Divider size="xs" mx="md" my="xl" />

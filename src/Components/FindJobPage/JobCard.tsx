@@ -25,9 +25,16 @@ const JobCard = (props: any) => {
             <div className="flex gap-2 items-center">
                 <div className="p-2  bg-woodsmoke-800 rounded-md">
                     <img className="w-[48px] h-[48px]" src={`/icons/${props.company}.svg`}
-                        onError={({ currentTarget }) => {
-                            currentTarget.onerror = null; // prevents looping
-                            currentTarget.src = "/icons/default.png";
+                        onError={(e) => {
+                            const img = e.currentTarget;
+
+                            if (img.src.endsWith('.svg')) {
+                                img.src = `/icons/${props.company}.png`;
+                            }
+
+                            else if (img.src.endsWith('.png')) {
+                                img.src = '/icons/default.png';
+                            }
                         }} alt="" />
                 </div>
                 <div>
