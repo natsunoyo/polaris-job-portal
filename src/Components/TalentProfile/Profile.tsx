@@ -7,7 +7,7 @@ import { useEffect, useState } from "react"
 import { getProfile } from "../../Services/ProfileService"
 
 
-const Profile = (props: any) => {
+const Profile = () => {
     const { id } = useParams()
     const [profile, setProfile] = useState<any>({})
     useEffect(() => {
