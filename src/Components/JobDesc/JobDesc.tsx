@@ -29,7 +29,7 @@ const JobDesc = (props: any) => {
     }
 
     const handleClose = () => {
-        postJob({ ...props, jobStatus: "CLOSED" }).then((res) => {
+        postJob({ ...props, jobStatus: "CLOSED" }).then(() => {
             successNotification("Успіх", "Вакансія успішно закрита")
         }).catch((err) => {
             errorNotification("Виникла помилка", err.response.data.errorMessage)

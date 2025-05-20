@@ -25,7 +25,7 @@ const ApplicationForm = () => {
         setSubmit(true)
         let resume: any = await getBase64(form.getValues().resume);
         let applicant = { ...form.getValues(), applicantID: user.id, resume: resume.split(',')[1] }
-        applyJob(id, applicant).then((res) => {
+        applyJob(id, applicant).then(() => {
             setSubmit(false);
             successNotification("Успіх", "Заявку надіслано успішно. \nОчікуйте відповіді роботодавця.")
             navigate("/job-history")

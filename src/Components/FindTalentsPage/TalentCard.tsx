@@ -36,7 +36,7 @@ const TalentCard = (props: any) => {
             interview = { ...interview, interviewTime: date }
         }
 
-        changeAppStatus(interview).then((res) => {
+        changeAppStatus(interview).then(() => {
             if (status == "INTERVIEWING") successNotification("Співбесіда запланована успішно", "Ви запросили кандидата на співбесіду")
             else if (status == "OFFERED") successNotification("Пропозиція надіслана успішно", "Ви запропонували кандидату зайняти вакантну посаду")
             else successNotification("Заявка відхилена", "Ви відхилили заявку кандидата")
