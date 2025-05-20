@@ -36,7 +36,7 @@ const Talents = () => {
 
     useEffect(() => {
         let filterTalent = talents
-        console.log(filter)
+        // console.log(filter)
 
         if (filter.name) filterTalent = filterTalent.filter((talent: any) => talent.name.toLowerCase().includes(filter.name.toLowerCase()))
         if (filter["Назва посади"] && filter["Назва посади"].length > 0) {

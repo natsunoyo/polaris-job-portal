@@ -25,8 +25,8 @@ const ResetPassword = (props: any) => {
 
     const handleSendOTP = () => {
         setOtpSending(true);
-        sendOTP(email).then((response) => {
-            console.log(response);
+        sendOTP(email).then(() => {
+            // console.log(response);
             successNotification("Код надіслано успішно", "Якщо листа немає, первірте папку \"Спам\".")
             setOtpSent(true);
             setOtpSending(false);

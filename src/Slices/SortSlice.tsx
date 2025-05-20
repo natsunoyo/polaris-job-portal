@@ -6,7 +6,7 @@ const sortSlice = createSlice({
     reducers: {
         updateSort: (state, action) => {
             state = action.payload
-            console.log(state);
+            // console.log(state);
             return state;
         },
         resetSort: (state) => {

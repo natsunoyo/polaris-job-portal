@@ -1,11 +1,11 @@
-import { Menu, Avatar, Switch } from '@mantine/core';
+import { Menu, Avatar, } from '@mantine/core';
 import {
-    IconMessageCircle,
+    // IconMessageCircle,
     IconUserCircle,
-    IconFileCv,
-    IconMoon,
-    IconMoonStars,
-    IconSun,
+    // IconFileCv,
+    // IconMoon,
+    // IconMoonStars,
+    // IconSun,
     IconLogout,
 } from '@tabler/icons-react';
 import { useState } from 'react';
@@ -18,7 +18,7 @@ const ProfileMenu = () => {
     const profile = useSelector((state: any) => state.profile);
     const user = useSelector((state: any) => state.user)
     const [opened, setOpened] = useState(false);
-    const [checked, setChecked] = useState(false);
+    // const [checked, setChecked] = useState(false);
     const handleLogout = () => {
         dispatch(removeUser())
     }
@@ -39,13 +39,14 @@ const ProfileMenu = () => {
                     </Menu.Item>
                 </Link>
 
-                <Menu.Item leftSection={<IconMessageCircle size={24} />}>
+                {/* <Menu.Item leftSection={<IconMessageCircle size={24} />}>
                     Повідомлення
                 </Menu.Item>
                 <Menu.Item leftSection={<IconFileCv size={24} />}>
                     Резюме
-                </Menu.Item>
-                <Menu.Item
+                </Menu.Item> */}
+
+                {/* <Menu.Item
                     leftSection={<IconMoon size={24} />}
                     rightSection={
                         <Switch
@@ -60,7 +61,7 @@ const ProfileMenu = () => {
                     }
                 >
                     Темний режим
-                </Menu.Item>
+                </Menu.Item> */}
 
                 <Menu.Divider />
 

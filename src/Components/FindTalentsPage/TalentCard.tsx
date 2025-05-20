@@ -1,4 +1,4 @@
-import { IconBookmark, IconCalendarMonth, IconMapPin } from "@tabler/icons-react"
+import { IconCalendarMonth, IconMapPin } from "@tabler/icons-react"
 import { Avatar, Button, Divider, Modal, Text } from "@mantine/core"
 import { DateInput, TimeInput } from '@mantine/dates';
 
@@ -46,7 +46,6 @@ const TalentCard = (props: any) => {
             console.log(err)
             errorNotification("Виникла помилка в процесі планування співбесіди", err.response.data.errorMessage)
         })
-        // close()
     }
 
     const ref = useRef<HTMLInputElement>(null)
@@ -62,7 +61,6 @@ const TalentCard = (props: any) => {
                     <div className="text-xs text-woodsmoke-400">{profile?.jobTitle}</div>
                 </div>
             </div>
-            <IconBookmark className="text-silver-sand-400 cursor-pointer" />
         </div>
         <div className="flex gap-2 [&>div]:py-1 [&>div]:px-2 [&>div]:bg-woodsmoke-800 [&>div]:text-purple-heart-400 [&>div]:rounded-lg text-xs items-center">
             {profile?.skills?.map((skill: any, index: any) => index < 4 && <div key={index}>
@@ -87,32 +85,35 @@ const TalentCard = (props: any) => {
         }
 
         <Divider size="xs" color="woodSmoke.5" />
-        <div className="flex [&>*]:w-1/2 [&>*]:p-1">
+        <div className={`flex [&>*]:p-1 ${props.posted || props.invited ? '[&>*]:w-1/2' : '[&>*]:w-full'}`}>
             {
                 !props.invited && <>
                     <Link to={`/talent-profile/${profile?.id}`}>
                         <Button fullWidth variant="outline" color="purpleHeart.2">Профіль</Button>
                     </Link>
 
-                    <div>
-                        {props.posted ? <Button onClick={open} rightSection={<IconCalendarMonth />} fullWidth variant="light" color="purpleHeart.2">Запросити</Button>
-                            : <Button fullWidth variant="light" color="purpleHeart.2">Написати</Button>}
-                    </div>
+                    {props.posted && (
+                        <button onClick={open}>
+                            <Button fullWidth rightSection={<IconCalendarMonth />} variant="light" color="purpleHeart.2">
+                                Запросити
+                            </Button>
+                        </button>
+                    )}
                 </>
             }
 
             {
                 props.invited && <>
-                    <div>
-                        <Button onClick={() => handleOffer("OFFERED")} fullWidth variant="outline" color="green.4">Прийняти</Button>
-                    </div>
-                    <div>
-                        <Button onClick={() => handleOffer("REJECTED")} fullWidth variant="light" color="red.4">Відхилити</Button>
-                    </div>
+                    <button onClick={() => handleOffer("OFFERED")}>
+                        <Button fullWidth variant="outline" color="green.4">Прийняти</Button>
+                    </button>
+                    <button onClick={() => handleOffer("REJECTED")}>
+                        <Button fullWidth variant="light" color="red.4">Відхилити</Button>
+                    </button>
                 </>
             }
-
         </div>
+
 
         {(props.invited || props.posted) && <Button onClick={openApp} fullWidth variant="light" color="purpleHeart.4">Переглянути заявку</Button>}
 

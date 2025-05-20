@@ -36,7 +36,7 @@ const Login = () => {
         if (valid) {
             setLoading(true);
             loginUser(data).then((response) => {
-                console.log(response);
+                // console.log(response);
                 setData(form);
                 successNotification("Ви увійшли в систему", "Перенаправлення головну сторінку...")
                 setTimeout(() => {

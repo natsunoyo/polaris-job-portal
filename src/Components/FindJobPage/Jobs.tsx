@@ -45,7 +45,7 @@ const Jobs = () => {
 
     useEffect(() => {
         let filterJob = jobList
-        console.log(filter)
+        // console.log(filter)
 
 
         if (filter["Назва посади"] && filter["Назва посади"].length > 0) {

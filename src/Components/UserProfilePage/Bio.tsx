@@ -25,7 +25,7 @@ const Bio = () => {
         let updatedProfile = { ...profile, bio: bio }
         dispatch(changeProfile(updatedProfile))
         successNotification("Успіх", "Профіль оновлено успішно.")
-        console.log(updatedProfile)
+        // console.log(updatedProfile)
     }
 
     return <div className="px-5">

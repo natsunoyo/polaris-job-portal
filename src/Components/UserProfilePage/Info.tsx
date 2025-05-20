@@ -45,7 +45,7 @@ const Info = () => {
         let updatedProfile = { ...profile, ...form.getValues() }
         dispatch(changeProfile(updatedProfile))
         successNotification("Успіх", "Профіль оновлено успішно.")
-        console.log(updatedProfile)
+        // console.log(updatedProfile)
     }
 
 
@@ -70,7 +70,7 @@ const Info = () => {
                         </div>
                         <div className="flex gap-10 [&>*]:w-1/2 mb-3">
                             <UserSelectInput form={form} name="location" {...select[2]} />
-                            <NumberInput hideControls clampBehavior="strict" min={8000} max={80000} withAsterisk size="lg" label="Бажана зарплата" {...form.getInputProps('expectedSalary')} />
+                            <NumberInput hideControls clampBehavior="strict" min={1} max={80000} withAsterisk size="lg" label="Бажана зарплата" {...form.getInputProps('expectedSalary')} />
                         </div>
                     </div>
                 </>

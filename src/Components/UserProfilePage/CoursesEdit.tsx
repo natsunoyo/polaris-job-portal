@@ -41,7 +41,7 @@ const CoursesEdit = (props: any) => {
         props.setEdit(false)
         dispatch(changeProfile(updatedProfile))
         successNotification("Успіх", `Інформація про курси оновлена успішно.`)
-        console.log(updatedProfile)
+        // console.log(updatedProfile)
     }
 
 

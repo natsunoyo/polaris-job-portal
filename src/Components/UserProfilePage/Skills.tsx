@@ -23,7 +23,7 @@ const Skills = () => {
         let updatedProfile = { ...profile, skills: skills }
         dispatch(changeProfile(updatedProfile))
         successNotification("Успіх", "Навички оновлені успішно.")
-        console.log(updatedProfile)
+        // console.log(updatedProfile)
     }
 
     return <div className="px-5">
